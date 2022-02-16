@@ -1,49 +1,58 @@
 fileFormatVersion: 2
-guid: 7f1c243ae4010b64288c413633d63328
+guid: 1d291fabfe510dc41a59876eb50ec898
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8706127635034554251
-    second: Wywlak_animation_0
+      213: 462064168812210549
+    second: Wywlak-animation(4)_0
   - first:
-      213: 6916764328062947245
-    second: Wywlak_animation_1
+      213: -4232002858001059820
+    second: Wywlak-animation(4)_1
   - first:
-      213: -5009211609337660365
-    second: Wywlak_animation_2
+      213: -3901912601573881884
+    second: Wywlak-animation(4)_2
   - first:
-      213: 520691716680527571
-    second: Wywlak_animation_3
+      213: -3830009229995517637
+    second: Wywlak-animation(4)_3
   - first:
-      213: -871204691258363408
-    second: Wywlak_animation_4
+      213: 2227829099065659194
+    second: Wywlak-animation(4)_4
   - first:
-      213: -257125290962061205
-    second: Wywlak_animation_5
+      213: 6318965899457817041
+    second: Wywlak-animation(4)_5
   - first:
-      213: -3372047140741342706
-    second: Wywlak_animation_6
+      213: 4800898884159164016
+    second: Wywlak-animation(4)_6
   - first:
-      213: 3383721813785275799
-    second: Wywlak_animation_7
+      213: -5741405791927109387
+    second: Wywlak-animation(4)_7
   - first:
-      213: 6945184379851302571
-    second: Wywlak_animation_8
+      213: -5511684270600121207
+    second: Wywlak-animation(4)_8
   - first:
-      213: 9121321163031787382
-    second: Wywlak_animation_9
+      213: 3681805700483876875
+    second: Wywlak-animation(4)_9
   - first:
-      213: -8508497568221082399
-    second: Wywlak_animation_10
+      213: 8281121656546905726
+    second: Wywlak-animation(4)_10
   - first:
-      213: -1101923479639514053
-    second: Wywlak_animation_11
+      213: -8178322079754003861
+    second: Wywlak-animation(4)_11
   - first:
-      213: 7331046002003989113
-    second: Wywlak_animation_12
+      213: -5642123700092859187
+    second: Wywlak-animation(4)_12
   - first:
-      213: -8078938079945685941
-    second: Wywlak_animation_13
+      213: 340497916909028310
+    second: Wywlak-animation(4)_13
+  - first:
+      213: 4628222251192066141
+    second: Wywlak-animation(4)_14
+  - first:
+      213: -4666065554274243549
+    second: Wywlak-animation(4)_15
+  - first:
+      213: -8690505498711906217
+    second: Wywlak-animation(4)_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -145,7 +154,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wywlak_animation_0
+      name: Wywlak-animation(4)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 579ec75d9e4996600800000000000000
+      internalID: 462064168812210549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wywlak-animation(4)_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410b860a2d7e445c0800000000000000
+      internalID: -4232002858001059820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wywlak-animation(4)_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7819e792f99d9c0800000000000000
+      internalID: -3901912601573881884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wywlak-animation(4)_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3956a7c5e219dac0800000000000000
+      internalID: -3830009229995517637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wywlak-animation(4)_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f461613c6daee10800000000000000
+      internalID: 2227829099065659194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wywlak-animation(4)_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d96df8910a71b750800000000000000
+      internalID: 6318965899457817041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wywlak-animation(4)_6
       rect:
         serializedVersion: 2
         x: 0
@@ -159,14 +294,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 570cd800b0f9d2780800000000000000
-      internalID: -8706127635034554251
+      spriteID: 07e40e0591830a240800000000000000
+      internalID: 4800898884159164016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wywlak_animation_1
+      name: Wywlak-animation(4)_7
       rect:
         serializedVersion: 2
         x: 40
@@ -180,14 +315,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daf094182884dff50800000000000000
-      internalID: 6916764328062947245
+      spriteID: 5f870dcf9dd6250b0800000000000000
+      internalID: -5741405791927109387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wywlak_animation_2
+      name: Wywlak-animation(4)_8
       rect:
         serializedVersion: 2
         x: 80
@@ -201,14 +336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33c7aacc494bb7ab0800000000000000
-      internalID: -5009211609337660365
+      spriteID: 98495c8ab509283b0800000000000000
+      internalID: -5511684270600121207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wywlak_animation_3
+      name: Wywlak-animation(4)_9
       rect:
         serializedVersion: 2
         x: 120
@@ -222,14 +357,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3de2b3a8b5ed93700800000000000000
-      internalID: 520691716680527571
+      spriteID: b08895d07c6681330800000000000000
+      internalID: 3681805700483876875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wywlak_animation_4
+      name: Wywlak-animation(4)_10
       rect:
         serializedVersion: 2
         x: 160
@@ -243,14 +378,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f134eaf2fbd8e3f0800000000000000
-      internalID: -871204691258363408
+      spriteID: e7ec54875447ce270800000000000000
+      internalID: 8281121656546905726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wywlak_animation_5
+      name: Wywlak-animation(4)_11
       rect:
         serializedVersion: 2
         x: 200
@@ -264,14 +399,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b68ff6109e18e6cf0800000000000000
-      internalID: -257125290962061205
+      spriteID: b6a57892663c08e80800000000000000
+      internalID: -8178322079754003861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wywlak_animation_6
+      name: Wywlak-animation(4)_12
       rect:
         serializedVersion: 2
         x: 0
@@ -285,14 +420,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0a9d3acdf41431d0800000000000000
-      internalID: -3372047140741342706
+      spriteID: dcc0725536623b1b0800000000000000
+      internalID: -5642123700092859187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wywlak_animation_7
+      name: Wywlak-animation(4)_13
       rect:
         serializedVersion: 2
         x: 40
@@ -306,101 +441,59 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79d6969df0565fe20800000000000000
-      internalID: 3383721813785275799
+      spriteID: 6d38f182d01b9b400800000000000000
+      internalID: 340497916909028310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wywlak_animation_8
+      name: Wywlak-animation(4)_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50acd7bd9fba3040800000000000000
+      internalID: 4628222251192066141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wywlak-animation(4)_15
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c2ccaa91ece3fb0800000000000000
+      internalID: -4666065554274243549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wywlak-animation(4)_16
       rect:
         serializedVersion: 2
         x: 80
-        y: 40
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba6e0a47560426060800000000000000
-      internalID: 6945184379851302571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wywlak_animation_9
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 40
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67733cc5541759e70800000000000000
-      internalID: 9121321163031787382
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wywlak_animation_10
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 40
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ec48e9aa8ebbe980800000000000000
-      internalID: -8508497568221082399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wywlak_animation_11
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 40
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b34ac6afe6e25b0f0800000000000000
-      internalID: -1101923479639514053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wywlak_animation_12
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 0
         width: 40
         height: 40
@@ -411,29 +504,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 972de7d4f7b1db560800000000000000
-      internalID: 7331046002003989113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wywlak_animation_13
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b44067ece98d1ef80800000000000000
-      internalID: -8078938079945685941
+      spriteID: 758a2be0b4f156780800000000000000
+      internalID: -8690505498711906217
       vertices: []
       indices: 
       edges: []
