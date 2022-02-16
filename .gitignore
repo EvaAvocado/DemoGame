@@ -12,7 +12,13 @@ sysinfo.txt
 Assets/AssetStoreTools*
 *.apk
 *.unitypackage
+[uU]ser[sS]ettings/
  
+# ============= #
+# INTELIJ Rider #
+# ============= #
+.idea/
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
