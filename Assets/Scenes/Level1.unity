@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 116918727}
   - component: {fileID: 116918726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,8 +202,8 @@ Transform:
   m_LocalPosition: {x: 1.2906072, y: 0.8171109, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 18
+  m_Father: {fileID: 318033436}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &118402696
 GameObject:
@@ -214,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 118402697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,29 +232,72 @@ Transform:
   m_LocalPosition: {x: 2.2093928, y: 0.6828891, z: -13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1505745103}
-  - {fileID: 878441239}
-  - {fileID: 347153865}
-  - {fileID: 1494447340}
-  - {fileID: 1427733824}
-  - {fileID: 1443160007}
-  - {fileID: 1786299155}
-  - {fileID: 1152988804}
-  - {fileID: 2045292647}
-  - {fileID: 1518175065}
-  - {fileID: 572015157}
-  - {fileID: 1019719221}
-  - {fileID: 600607476}
-  - {fileID: 1606770237}
-  - {fileID: 2086491992}
-  - {fileID: 951676646}
-  - {fileID: 649955658}
-  - {fileID: 1273453600}
-  - {fileID: 116918727}
-  - {fileID: 1477549199}
+  - {fileID: 590389793}
+  - {fileID: 1131259126}
+  - {fileID: 1271481878}
+  - {fileID: 318033436}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &318033435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318033436}
+  - component: {fileID: 318033437}
+  m_Layer: 6
+  m_Name: Island5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &318033436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318033435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 116918727}
+  - {fileID: 1477549199}
+  m_Father: {fileID: 118402697}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &318033437
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318033435}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.7869818, y: 0.81498325}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8224602, y: 0.9850459}
+  m_EdgeRadius: 0
 --- !u!1 &347153863
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 347153865}
   - component: {fileID: 347153864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +377,7 @@ Transform:
   m_LocalPosition: {x: -5.9593925, y: -0.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
+  m_Father: {fileID: 590389793}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -451,7 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 572015157}
   - component: {fileID: 572015156}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,9 +563,70 @@ Transform:
   m_LocalPosition: {x: -0.20939279, y: -1.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 10
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &590389792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 590389793}
+  - component: {fileID: 590389794}
+  m_Layer: 6
+  m_Name: Island1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &590389793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590389792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1505745103}
+  - {fileID: 878441239}
+  - {fileID: 347153865}
+  - {fileID: 1494447340}
+  m_Father: {fileID: 118402697}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &590389794
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590389792}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -5.4623814, y: -0.68470657}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.8495235, y: 1.0067778}
+  m_EdgeRadius: 0
 --- !u!1 &600607474
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 600607476}
   - component: {fileID: 600607475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,8 +706,8 @@ Transform:
   m_LocalPosition: {x: 0.7906072, y: -1.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 12
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &649955656
 GameObject:
@@ -615,7 +719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 649955658}
   - component: {fileID: 649955657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,8 +788,8 @@ Transform:
   m_LocalPosition: {x: -1.4593928, y: 0.8171109, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 16
+  m_Father: {fileID: 1271481878}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &878441237
 GameObject:
@@ -697,7 +801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 878441239}
   - component: {fileID: 878441238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +870,7 @@ Transform:
   m_LocalPosition: {x: -3.9593928, y: -0.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
+  m_Father: {fileID: 590389793}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &951676644
@@ -779,7 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951676646}
   - component: {fileID: 951676645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,8 +952,8 @@ Transform:
   m_LocalPosition: {x: 1.7906072, y: -2.682889, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 15
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1019719219
 GameObject:
@@ -861,7 +965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019719221}
   - component: {fileID: 1019719220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,9 +1034,78 @@ Transform:
   m_LocalPosition: {x: -0.20939279, y: -2.682889, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 11
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1131259125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1131259126}
+  - component: {fileID: 1131259127}
+  m_Layer: 6
+  m_Name: Island2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1131259126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131259125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1427733824}
+  - {fileID: 1443160007}
+  - {fileID: 1786299155}
+  - {fileID: 1152988804}
+  - {fileID: 2045292647}
+  - {fileID: 1518175065}
+  - {fileID: 572015157}
+  - {fileID: 1019719221}
+  - {fileID: 600607476}
+  - {fileID: 1606770237}
+  - {fileID: 2086491992}
+  - {fileID: 951676646}
+  m_Father: {fileID: 118402697}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1131259127
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131259125}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.28412247, y: -2.183258}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.81513, y: 1.9869521}
+  m_EdgeRadius: 0
 --- !u!1 &1152988802
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +1116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1152988804}
   - component: {fileID: 1152988803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,9 +1185,68 @@ Transform:
   m_LocalPosition: {x: -2.2093928, y: -2.682889, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 7
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1271481877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271481878}
+  - component: {fileID: 1271481879}
+  m_Layer: 6
+  m_Name: Island3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1271481878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271481877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 649955658}
+  - {fileID: 1273453600}
+  m_Father: {fileID: 118402697}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1271481879
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271481877}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.95704436, y: 0.8299371}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8374147, y: 0.9850459}
+  m_EdgeRadius: 0
 --- !u!1 &1273453598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +1257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1273453600}
   - component: {fileID: 1273453599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,8 +1326,8 @@ Transform:
   m_LocalPosition: {x: -0.4593928, y: 0.8171109, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 17
+  m_Father: {fileID: 1271481878}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1427733822
 GameObject:
@@ -1107,7 +1339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427733824}
   - component: {fileID: 1427733823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,8 +1408,8 @@ Transform:
   m_LocalPosition: {x: -2.2093928, y: -1.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 4
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1443160005
 GameObject:
@@ -1189,7 +1421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1443160007}
   - component: {fileID: 1443160006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1258,8 +1490,8 @@ Transform:
   m_LocalPosition: {x: -1.2093928, y: -1.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 5
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1477549197
 GameObject:
@@ -1271,7 +1503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1477549199}
   - component: {fileID: 1477549198}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1340,8 +1572,8 @@ Transform:
   m_LocalPosition: {x: 2.2906072, y: 0.8171109, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 19
+  m_Father: {fileID: 318033436}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494447338
 GameObject:
@@ -1353,7 +1585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1494447340}
   - component: {fileID: 1494447339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,7 +1654,7 @@ Transform:
   m_LocalPosition: {x: -4.9593925, y: -0.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
+  m_Father: {fileID: 590389793}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1505745101
@@ -1435,7 +1667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1505745103}
   - component: {fileID: 1505745102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1504,7 +1736,7 @@ Transform:
   m_LocalPosition: {x: -6.9593925, y: -0.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
+  m_Father: {fileID: 590389793}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1518175063
@@ -1517,7 +1749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518175065}
   - component: {fileID: 1518175064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1586,8 +1818,8 @@ Transform:
   m_LocalPosition: {x: 2.7906072, y: -2.682889, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 9
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606770235
 GameObject:
@@ -1599,7 +1831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606770237}
   - component: {fileID: 1606770236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1668,8 +1900,8 @@ Transform:
   m_LocalPosition: {x: 1.7906072, y: -1.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 13
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735166148
 GameObject:
@@ -1747,7 +1979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735166148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1763,7 +1995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1786299155}
   - component: {fileID: 1786299154}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1832,8 +2064,8 @@ Transform:
   m_LocalPosition: {x: 2.7906072, y: -1.6828891, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 6
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801889950
 GameObject:
@@ -1847,6 +2079,10 @@ GameObject:
   - component: {fileID: 1801889951}
   - component: {fileID: 1801889954}
   - component: {fileID: 1801889953}
+  - component: {fileID: 1801889955}
+  - component: {fileID: 1801889958}
+  - component: {fileID: 1801889957}
+  - component: {fileID: 1801889956}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -1945,6 +2181,132 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _jumpForce: 1
+--- !u!114 &1801889955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801889950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3770b9d2d2e42fc4b8067d71752ebab0, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1801889953}
+        m_TargetAssemblyTypeName: HeroInputReader, Assembly-CSharp
+        m_MethodName: OnHorizontal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 832b35a8-e31c-497e-82a4-774334b56ee1
+    m_ActionName: Hero/Horizontal[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1801889953}
+        m_TargetAssemblyTypeName: HeroInputReader, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4ed0e28f-f320-4801-aebd-33357edf9a72
+    m_ActionName: Hero/Jump[/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Hero
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!50 &1801889956
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801889950}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &1801889957
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801889950}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.024763107, y: -0.079241574}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3660679, y: 0.6037921}
+  m_EdgeRadius: 0
+--- !u!70 &1801889958
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801889950}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.025258541, y: -0.13408375}
+  m_Size: {x: 0.24724197, y: 0.7233815}
+  m_Direction: 0
 --- !u!1 &2045292645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +2317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045292647}
   - component: {fileID: 2045292646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2024,8 +2386,8 @@ Transform:
   m_LocalPosition: {x: -1.2093928, y: -2.682889, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 8
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2052371424
 GameObject:
@@ -2120,7 +2482,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.013757229, y: -0.1926014}
@@ -2146,7 +2508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2086491992}
   - component: {fileID: 2086491991}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Outdoor15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2215,6 +2577,6 @@ Transform:
   m_LocalPosition: {x: 0.7906072, y: -2.682889, z: 13.99771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 118402697}
-  m_RootOrder: 14
+  m_Father: {fileID: 1131259126}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
