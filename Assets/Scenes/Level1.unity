@@ -1919,7 +1919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1735166150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2080,6 +2080,7 @@ GameObject:
   - component: {fileID: 1801889954}
   - component: {fileID: 1801889953}
   - component: {fileID: 1801889955}
+  - component: {fileID: 1801889956}
   - component: {fileID: 1801889958}
   - component: {fileID: 1801889957}
   m_Layer: 0
@@ -2180,10 +2181,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _jumpForce: 1
+  _jumpForce: 15
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _groundCheckRadius: 0.25
+  _groundCheckPositionDelta: {x: 0, y: -0.3, z: 0}
 --- !u!114 &1801889955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2241,27 +2244,32 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4ed0e28f-f320-4801-aebd-33357edf9a72
     m_ActionName: Hero/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1801889953}
-        m_TargetAssemblyTypeName: HeroInputReader, Assembly-CSharp
-        m_MethodName: OnVertical
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a5e67aaa-2de6-4f25-8703-2cadac765451
-    m_ActionName: Hero/Vertical[/Keyboard/s,/Keyboard/w,/Keyboard/downArrow,/Keyboard/upArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!50 &1801889956
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801889950}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 2
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 2
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &1801889957
 BoxCollider2D:
   m_ObjectHideFlags: 0

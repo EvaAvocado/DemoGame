@@ -10,21 +10,21 @@ public class Hero : MonoBehaviour
     private Rigidbody2D _rb;
 
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private float _groundCheckRadius;
+    [SerializeField] private Vector3 _groundCheckPositionDelta;
     
     private float _direction;
-    private float _directionVertical;
     private bool _pressSpace;
 
     private void Awake()
     {
-        //_rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
         Run();
-        //Jump();
-        VerticalMove();
+        Jump();
     }
     
     //Задача направления: направо - 1, налево - (-1)
@@ -35,13 +35,7 @@ public class Hero : MonoBehaviour
 
     private void Run()
     {
-        if (_direction != 0)
-        {
-            var delta = _direction * _speed * Time.deltaTime;
-            var newXPosition = transform.position.x + delta;
-            transform.position = new Vector3(newXPosition, transform.position.y, transform.position.z);
-        }
-        //if (_direction != 0) _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
+        if (_direction != 0) _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
     }
 
     public void SetPressSpace(bool pressSpace)
@@ -51,22 +45,13 @@ public class Hero : MonoBehaviour
 
     private void Jump()
     {
-        if(_pressSpace) _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        if(_pressSpace && IsGrounded()) _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        else if (_rb.velocity.y > 0) _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
     }
-    
-    
-     public void SetDirectionVertical(float direction)
-        {
-            _directionVertical = direction;
-        }
 
-     private void VerticalMove()
-        {
-            if (_directionVertical != 0)
-            {
-                var delta = _directionVertical * _speed * Time.deltaTime;
-                var newYPosition = transform.position.y + delta;
-                transform.position = new Vector3(transform.position.x, newYPosition, transform.position.z);
-            }
-        }
+    private bool IsGrounded()
+    {
+        var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
+        return hit.collider != null;
+    }
 }

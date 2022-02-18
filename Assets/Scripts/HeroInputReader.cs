@@ -14,12 +14,6 @@ public class HeroInputReader : MonoBehaviour
         _hero.SetDirectionHorizontal(direction);
     }
     
-    public void OnVertical(InputAction.CallbackContext context)
-    {
-        var direction = context.ReadValue<float>();
-        _hero.SetDirectionVertical(direction);
-    }
-    
     public void OnJump(InputAction.CallbackContext context)
     {
         bool pressSpace = context.ReadValue<float>() > 0;
