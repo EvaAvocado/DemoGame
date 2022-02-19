@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Outdoor
+    uniqueID: 1965590175
+    locked: 0
+  - name: Player
+    uniqueID: 3141516921
+    locked: 0

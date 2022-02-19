@@ -16,7 +16,6 @@ public class HeroInputReader : MonoBehaviour
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        bool pressSpace = context.ReadValue<float>() > 0;
-        _hero.SetPressSpace(pressSpace);
+        _hero.Jump();
     }
 }

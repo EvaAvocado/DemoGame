@@ -14,7 +14,6 @@ public class Hero : MonoBehaviour
     [SerializeField] private Vector3 _groundCheckPositionDelta;
     
     private float _direction;
-    private bool _pressSpace;
 
     private void Awake()
     {
@@ -24,7 +23,6 @@ public class Hero : MonoBehaviour
     private void FixedUpdate()
     {
         Run();
-        Jump();
     }
     
     //Задача направления: направо - 1, налево - (-1)
@@ -35,18 +33,22 @@ public class Hero : MonoBehaviour
 
     private void Run()
     {
-        if (_direction != 0) _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
+        if (_direction != 0)
+        {
+            _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
+        }
     }
 
-    public void SetPressSpace(bool pressSpace)
+    public void Jump()
     {
-        _pressSpace = pressSpace;
-    }
-
-    private void Jump()
-    {
-        if(_pressSpace && IsGrounded()) _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-        else if (_rb.velocity.y > 0) _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
+        if (IsGrounded())
+        {
+            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        }
+        else if (_rb.velocity.y > 0)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
+        }
     }
 
     private bool IsGrounded()
