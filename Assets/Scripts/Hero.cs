@@ -14,10 +14,12 @@ public class Hero : MonoBehaviour
     [SerializeField] private Vector3 _groundCheckPositionDelta;
     
     private float _direction;
+    public int points;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        points = 0;
     }
 
     private void FixedUpdate()
@@ -45,7 +47,11 @@ public class Hero : MonoBehaviour
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
-        else if (_rb.velocity.y > 0)
+    }
+
+    public void JumpBroke()
+    {
+        if (_rb.velocity.y > 0)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
         }

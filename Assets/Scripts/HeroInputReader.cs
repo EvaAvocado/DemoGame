@@ -16,6 +16,13 @@ public class HeroInputReader : MonoBehaviour
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        _hero.Jump();
+        if (context.phase == InputActionPhase.Performed)
+        {
+            _hero.Jump();
+        }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            _hero.JumpBroke();
+        }
     }
 }
