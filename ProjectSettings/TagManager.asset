@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 307490431
+    locked: 0
   - name: Outdoor
     uniqueID: 1965590175
     locked: 0

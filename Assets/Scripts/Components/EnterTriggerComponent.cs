@@ -11,6 +11,7 @@ public class EnterTriggerComponent : MonoBehaviour
         if (other.gameObject.CompareTag(_tag))
         {
             _action?.Invoke();
+            
         }
     }
 }
