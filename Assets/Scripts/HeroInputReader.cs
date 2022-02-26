@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class HeroInputReader : MonoBehaviour
 {
     [SerializeField] private Hero _hero;
-
+    
     public void OnHorizontal(InputAction.CallbackContext context)
     {
         var direction = context.ReadValue<float>();
@@ -16,7 +16,7 @@ public class HeroInputReader : MonoBehaviour
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Started)
         {
             _hero.Jump();
         }
@@ -24,5 +24,10 @@ public class HeroInputReader : MonoBehaviour
         {
             _hero.JumpBroke();
         }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        _hero.Interact();
     }
 }

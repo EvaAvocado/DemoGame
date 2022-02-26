@@ -17,12 +17,20 @@ public class Hero : MonoBehaviour
     [SerializeField] private Vector3 _groundCheckPositionDelta;
     private bool _isGrounded;
 
+    [SerializeField] private float _interactionRadius;
+    private Collider2D[] _interactionResult = new Collider2D[1];
+    [SerializeField] private LayerMask _interactionLayer;
+
     private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
     private static readonly int IsRunningKey = Animator.StringToHash("is-running");
     private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
     
     private float _direction;
-    public int points;
+    private bool _allowSecondJump;
+    
+    private int _points;
+
+    private bool _horizontalMove;
 
     private void Awake()
     {
@@ -33,18 +41,25 @@ public class Hero : MonoBehaviour
 
     private void Start()
     {
-        points = 0;
+        _points = 0;
+        _allowSecondJump = true;
+        _horizontalMove = true;
+    }
+
+    private void Update()
+    {
+        _isGrounded = IsGrounded();
+        if (_isGrounded) _allowSecondJump = true;
     }
 
     private void FixedUpdate()
     {
-        _isGrounded = IsGrounded();
         Run();
         Flip();
-        Animation();
+        Animations();
     }
 
-    private void Animation()
+    private void Animations()
     {
         _animator.SetBool(IsRunningKey, _direction != 0);
         _animator.SetFloat(VerticalVelocityKey, _rb.velocity.y);
@@ -55,12 +70,17 @@ public class Hero : MonoBehaviour
     public void SetDirectionHorizontal(float direction)
     {
         _direction = direction;
+        _horizontalMove = true;
     }
 
-    private void Run()
+    public void Run()
     {
-        _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
+        if (_horizontalMove)
+        {
+            _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
+        }
     }
+    
 
     private void Flip()
     {
@@ -79,6 +99,9 @@ public class Hero : MonoBehaviour
         if (_isGrounded)
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        } else if (!_isGrounded && _allowSecondJump)
+        {
+            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
 
@@ -94,5 +117,38 @@ public class Hero : MonoBehaviour
     {
         var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
         return hit.collider != null;
+    }
+
+    public void Interact()
+    {
+        var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius, _interactionResult, _interactionLayer);
+        for (int i = 0; i < size; i++)
+        {
+            var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
+        }
+    }
+
+    public void AddPoints(int count)
+    {
+        _points += count;
+        print("Points: " + _points);
+    }
+
+    //Отскок
+    public void Rebound(bool direction)
+    {
+        _horizontalMove = false;
+        if (direction)
+        {
+            _rb.AddForce (Vector2.up  * _jumpForce + Vector2.left * _jumpForce * 0.25f, ForceMode2D.Impulse);
+        }
+        else
+        {
+            _rb.AddForce (Vector2.up  * _jumpForce + Vector2.right * _jumpForce * 0.25f, ForceMode2D.Impulse);
+        }
     }
 }
