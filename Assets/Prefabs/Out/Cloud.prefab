@@ -144,5 +144,6 @@ MonoBehaviour:
   _vertical: 0
   _horizontalOffset: 5
   _verticalOffset: 0
-  _speed: 2
+  _speed: 1.5
+  _speedToRandom: 2.5
   _loop: 1

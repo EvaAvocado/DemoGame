@@ -28,9 +28,13 @@ public class SpriteAnimationComponent : MonoBehaviour
 
     private void Update()
     {
+        Animation();
+    }
+
+    private void Animation()
+    {
         if (_nextFrameTime > Time.time) return;
-
-
+        
         if (_currentSpritIndex >= _sprites.Length)
         {
             if (_loop)

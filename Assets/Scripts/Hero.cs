@@ -10,7 +10,6 @@ public class Hero : MonoBehaviour
     
     private Rigidbody2D _rb;
     private Animator _animator;
-    private SpriteRenderer _sprite;
 
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _groundCheckRadius;
@@ -20,6 +19,9 @@ public class Hero : MonoBehaviour
     [SerializeField] private float _interactionRadius;
     private Collider2D[] _interactionResult = new Collider2D[1];
     [SerializeField] private LayerMask _interactionLayer;
+
+    [SerializeField] private SpawnComponent _particleRun;
+    [SerializeField] private SpawnComponent _particleJump;
 
     private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
     private static readonly int IsRunningKey = Animator.StringToHash("is-running");
@@ -36,7 +38,6 @@ public class Hero : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -86,11 +87,11 @@ public class Hero : MonoBehaviour
     {
         if (_direction > 0)
         {
-            _sprite.flipX = false;
+            transform.localScale = Vector3.one;
         }
         else if (_direction < 0)
         {
-            _sprite.flipX = true;  
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
@@ -99,12 +100,16 @@ public class Hero : MonoBehaviour
         if (_isGrounded)
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            SpawnParticleJump();
+
         } else if (!_isGrounded && _allowSecondJump)
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _allowSecondJump = false;
+            SpawnParticleJump();
         }
     }
-
+    
     public void JumpBroke()
     {
         if (_rb.velocity.y > 0)
@@ -139,16 +144,30 @@ public class Hero : MonoBehaviour
     }
 
     //Отскок
-    public void Rebound(bool direction)
+    public void Rebound()
     {
         _horizontalMove = false;
-        if (direction)
-        {
-            _rb.AddForce (Vector2.up  * _jumpForce + Vector2.left * _jumpForce * 0.25f, ForceMode2D.Impulse);
-        }
-        else
-        {
-            _rb.AddForce (Vector2.up  * _jumpForce + Vector2.right * _jumpForce * 0.25f, ForceMode2D.Impulse);
-        }
+
+        var dir = _direction > 0 ? Vector2.left : Vector2.right;
+        _rb.AddForce (Vector2.up  * _jumpForce + dir * _jumpForce * 0.25f, ForceMode2D.Impulse);
     }
+
+    public void SpawnParticleRun()
+    {
+        _particleRun.Spawn();
+    }
+    
+    private void SpawnParticleJump()
+    {
+        StartCoroutine(TimerToSpawnParticleJump());
+    }
+    
+    IEnumerator TimerToSpawnParticleJump()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            _particleJump.Spawn();
+            yield return new WaitForSeconds(0.03f);
+        }
+    } 
 }

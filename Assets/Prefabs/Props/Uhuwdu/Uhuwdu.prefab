@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3186423539482509579}
   - component: {fileID: 3186423539482509578}
   - component: {fileID: 3186423539482509573}
+  - component: {fileID: 2137801739}
+  - component: {fileID: 6079155336469746140}
   m_Layer: 0
   m_Name: Uhuwdu
   m_TagString: Untagged
@@ -164,3 +166,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 3186423539482509575}
+--- !u!114 &2137801739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186423539482509575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3056e054534f02c4a8e109232eb2b03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _horizontal: 0
+  _vertical: 1
+  _horizontalOffset: 0
+  _verticalOffset: 0.15
+  _speed: 0.25
+  _speedToRandom: 0.75
+  _loop: 1
+--- !u!50 &6079155336469746140
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186423539482509575}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

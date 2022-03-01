@@ -50,3 +50,6 @@ TagManager:
   - name: Player
     uniqueID: 3141516921
     locked: 0
+  - name: Outlayer
+    uniqueID: 1528328093
+    locked: 0

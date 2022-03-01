@@ -7,6 +7,7 @@ public class MoveComponent : MonoBehaviour
     [SerializeField] private float _horizontalOffset;
     [SerializeField] private float _verticalOffset;
     [SerializeField] private float _speed;
+    [SerializeField] private float _speedToRandom;
     [SerializeField] private bool _loop;
 
     private Rigidbody2D _rb;
@@ -48,6 +49,11 @@ public class MoveComponent : MonoBehaviour
         if (_verticalOffset == 0)
         {
             _vertical = false;
+        }
+
+        if (_speedToRandom != 0)
+        {
+            _speed = _speed < _speedToRandom ? Random.Range(_speed, _speedToRandom) : Random.Range(_speedToRandom, _speed);
         }
     }
 
