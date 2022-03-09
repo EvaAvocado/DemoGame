@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MoveComponent : MonoBehaviour
 {
-    [SerializeField] private bool _horizontal;
-    [SerializeField] private bool _vertical;
+    [FormerlySerializedAs("_horizontal")] [SerializeField] private bool _isHorizontal;
+    [FormerlySerializedAs("_vertical")] [SerializeField] private bool _isVertical;
     [SerializeField] private float _horizontalOffset;
     [SerializeField] private float _verticalOffset;
     [SerializeField] private float _speed;
@@ -43,12 +44,12 @@ public class MoveComponent : MonoBehaviour
 
         if (_horizontalOffset == 0)
         {
-            _horizontal = false;
+            _isHorizontal = false;
         }
 
         if (_verticalOffset == 0)
         {
-            _vertical = false;
+            _isVertical = false;
         }
 
         if (_speedToRandom != 0)
@@ -66,13 +67,13 @@ public class MoveComponent : MonoBehaviour
     {
         if (!_stopMove)
         {
-            if (_horizontal)
+            if (_isHorizontal)
             {
                 CheckEndPositionHorizontal();
                 MoveHorizontal();
             }
 
-            if (_vertical)
+            if (_isVertical)
             {
                 CheckEndPositionVertical();
                 MoveVertical();
@@ -215,5 +216,30 @@ public class MoveComponent : MonoBehaviour
                 _moveVerticalTop = !_moveVerticalTop;
             }
         }
+    }
+    [ContextMenu("NextHorizontalPosition")]
+    public void NextHorizontalPosition()
+    {
+        _isHorizontal = true;
+        _startPositionHorizontal = transform.position.x;
+        _stopMove = false;
+    }
+    
+    [ContextMenu("NextVerticalPosition")]
+    public void NextVerticalPosition()
+    {
+        _isVertical = true;
+        _startPositionVertical = transform.position.y;
+        _stopMove = false;
+    }
+
+    public void SetHorizontal(bool status)
+    {
+        _isHorizontal = status;
+    }
+    
+    public void SetVertical(bool status)
+    {
+        _isVertical = status;
     }
 }

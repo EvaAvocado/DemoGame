@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3186423539482509573}
   - component: {fileID: 2137801739}
   - component: {fileID: 6079155336469746140}
+  - component: {fileID: 5041960843276039979}
   m_Layer: 0
   m_Name: Uhuwdu
   m_TagString: Untagged
@@ -178,8 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3056e054534f02c4a8e109232eb2b03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizontal: 0
-  _vertical: 1
+  _isHorizontal: 0
+  _isVertical: 1
   _horizontalOffset: 0
   _verticalOffset: 0.15
   _speed: 0.25
@@ -206,3 +207,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &5041960843276039979
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186423539482509575}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44d5eb0c697daf24fa61bb4136f8d4a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

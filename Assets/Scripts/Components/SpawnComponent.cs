@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class SpawnComponent : MonoBehaviour
@@ -12,6 +11,4 @@ public class SpawnComponent : MonoBehaviour
        var instantiate =  Instantiate(_prefab, _target.position, Quaternion.identity);
        instantiate.transform.localScale = _target.lossyScale;
    }
-
-   
 }

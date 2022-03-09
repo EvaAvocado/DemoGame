@@ -9,6 +9,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private float _speed;
     private float _currentSpeed;
     [SerializeField] private float _jumpForce;
+    public int _damage = 2;
     
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -17,6 +18,11 @@ public class Hero : MonoBehaviour
     [SerializeField] private float _groundCheckRadius;
     [SerializeField] private Vector3 _groundCheckPositionDelta;
     private bool _isGrounded;
+    
+    [SerializeField] private LayerMask _platformLayer;
+    private float _platformCheckRadius;
+    private Vector3 _platformCheckPositionDelta;
+    private bool _isPlatform;
 
     [SerializeField] private float _interactionRadius;
     private Collider2D[] _interactionResult = new Collider2D[1];
@@ -24,6 +30,9 @@ public class Hero : MonoBehaviour
 
     [SerializeField] private SpawnComponent _particleRun;
     [SerializeField] private SpawnComponent _particleJump;
+    [SerializeField] private SpawnComponent _particleJumpDown;
+
+    [SerializeField] private float _jumpDownVelocity;
 
     [SerializeField] private Transform _additionalPosition;
 
@@ -31,7 +40,9 @@ public class Hero : MonoBehaviour
     private static readonly int IsRunningKey = Animator.StringToHash("is-running");
     private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
     
-    private float _direction;
+    
+    private float _directionHorizontal;
+    private float _directionVertical;
     private bool _allowSecondJump;
     
     private int _points;
@@ -57,11 +68,14 @@ public class Hero : MonoBehaviour
         _windy = false;
         _windDirectionRight = true;
         _bloxMoveX = false;
+        _platformCheckRadius = _groundCheckRadius;
+        _platformCheckPositionDelta = _groundCheckPositionDelta;
     }
 
     private void Update()
     {
         _isGrounded = IsGrounded();
+        _isPlatform = IsPlatform();
         if (_isGrounded) _allowSecondJump = true;
     }
 
@@ -85,7 +99,7 @@ public class Hero : MonoBehaviour
 
     private void Animations()
     {
-        _animator.SetBool(IsRunningKey, _direction != 0);
+        _animator.SetBool(IsRunningKey, _directionHorizontal != 0);
         _animator.SetFloat(VerticalVelocityKey, _rb.velocity.y);
         _animator.SetBool(IsGroundKey, _isGrounded);
     }
@@ -93,7 +107,7 @@ public class Hero : MonoBehaviour
     //Задача направления: направо - 1, налево - (-1)
     public void SetDirectionHorizontal(float direction)
     {
-        _direction = direction;
+        _directionHorizontal = direction;
         _horizontalMove = true;
     }
 
@@ -101,17 +115,17 @@ public class Hero : MonoBehaviour
     {
         if (_horizontalMove)
         {
-            _rb.velocity = new Vector2(_direction * _currentSpeed, _rb.velocity.y);
+            _rb.velocity = new Vector2(_directionHorizontal * _currentSpeed, _rb.velocity.y);
         }
     }
     
     private void Flip()
     {
-        if (_direction > 0)
+        if (_directionHorizontal > 0)
         { 
             transform.localScale = Vector3.one;
         }
-        else if (_direction < 0)
+        else if (_directionHorizontal < 0)
         { 
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -176,7 +190,7 @@ public class Hero : MonoBehaviour
     
     IEnumerator TimerToDelayRebound()
     {
-        var dir = _direction > 0 ? Vector2.left : Vector2.right;
+        var dir = _directionHorizontal > 0 ? Vector2.left : Vector2.right;
         _rb.AddForce (Vector2.up  * _jumpForce + dir * _jumpForce * 0.25f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(1f);
     }
@@ -204,23 +218,23 @@ public class Hero : MonoBehaviour
     {
         if (_windy && windDirectionRight)
         {
-            if (_direction > 0)
+            if (_directionHorizontal > 0)
             {
                 _currentSpeed = 1.35f * _speed; 
             }
-            else if (_direction < 0)
+            else if (_directionHorizontal < 0)
             {
-                _currentSpeed = 0.65f * _speed; 
+                _currentSpeed = 0.75f * _speed; 
             }
         }
         
         if(_windy && !windDirectionRight)
         {
-            if (_direction < 0)
+            if (_directionHorizontal < 0)
             {
                 _currentSpeed = 1.35f * _speed; 
             }
-            else if (_direction > 0)
+            else if (_directionHorizontal > 0)
             {
                 _currentSpeed = 0.65f * _speed; 
             }
@@ -252,5 +266,40 @@ public class Hero : MonoBehaviour
         _bloxMoveX = true;
         _rb.velocity = Vector2.zero;
         _animator.Play("climb");
+    }
+    
+    public void SetDirectionVertical(float direction)
+    {
+        _directionVertical = direction;
+    }
+
+    private bool IsPlatform()
+    {
+        var hit = Physics2D.CircleCast(transform.position + _platformCheckPositionDelta, _platformCheckRadius, Vector2.down, 0, _platformLayer);
+        return hit.collider != null;
+    }
+
+    public bool IsPlatformAndDown()
+    {
+        if (_isPlatform && _directionVertical == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision other)
+    {
+        if (other.gameObject.IsInLayer(_groundLayer))
+        {
+            var contact = other.contacts[0];
+            if (contact.relativeVelocity.y >= _jumpDownVelocity)
+            {
+                _particleJumpDown.Spawn();
+            }
+        }
     }
 }
