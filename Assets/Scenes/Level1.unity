@@ -6311,7 +6311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455827191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1801889952}
@@ -17916,7 +17916,7 @@ MonoBehaviour:
   _particleRun: {fileID: 1941120075}
   _particleJump: {fileID: 2092263718}
   _particleJumpDown: {fileID: 455827193}
-  _jumpDownVelocity: 0
+  _jumpDownVelocity: 5
   _additionalPosition: {fileID: 339790952}
   _bloxMoveX: 0
 --- !u!114 &1801889955

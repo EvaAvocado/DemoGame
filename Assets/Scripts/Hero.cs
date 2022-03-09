@@ -291,14 +291,14 @@ public class Hero : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.IsInLayer(_groundLayer))
         {
             var contact = other.contacts[0];
             if (contact.relativeVelocity.y >= _jumpDownVelocity)
             {
-                _particleJumpDown.Spawn();
+                _particleJumpDown.Spawn();  
             }
         }
     }
