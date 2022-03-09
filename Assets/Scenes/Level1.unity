@@ -17916,7 +17916,7 @@ MonoBehaviour:
   _particleRun: {fileID: 1941120075}
   _particleJump: {fileID: 2092263718}
   _particleJumpDown: {fileID: 455827193}
-  _jumpDownVelocity: 5
+  _jumpDownVelocity: 10
   _additionalPosition: {fileID: 339790952}
   _bloxMoveX: 0
 --- !u!114 &1801889955
