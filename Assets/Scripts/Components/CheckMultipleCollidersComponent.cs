@@ -5,8 +5,8 @@ using UnityEngine.Events;
 public class CheckMultipleCollidersComponent : MonoBehaviour
 {
     [SerializeField] private int _requiredNumberCollisions;
-    private int _currentNumberCollisions;
     [SerializeField] private UnityEvent _action;
+    private int _currentNumberCollisions;
 
     private void Update()
     {

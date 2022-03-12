@@ -9,7 +9,6 @@ public class WeaponParticleCollision : MonoBehaviour
    
    private void OnParticleCollision(GameObject other)
    {
-      
       if (other.CompareTag(_tag))
       {
          _weapon.ApplyRayDamage(other);

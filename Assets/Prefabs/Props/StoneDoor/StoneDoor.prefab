@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5324235182700896058}
   - component: {fileID: 1367514310}
   - component: {fileID: 1367514307}
+  - component: {fileID: 9219054159800536513}
   m_Layer: 0
   m_Name: StoneDoor
   m_TagString: Untagged
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a369fb4ed357134891b5a2f8145de98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5324235182700896056, guid: cee1b4f8195231a4d8498a645c73815e, type: 3}
+  _animator: {fileID: 0}
   _state: 0
   _animationKey: is-opened
 --- !u!50 &1367514310
@@ -167,3 +168,30 @@ MonoBehaviour:
   _speed: 1
   _speedToRandom: 0
   _loop: 0
+--- !u!114 &9219054159800536513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324235182700896052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee2af924d3bec34a9feda984bf9f3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _opened:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1367514307}
+        m_TargetAssemblyTypeName: MoveComponent, Assembly-CSharp
+        m_MethodName: NextVerticalPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OnOffBoxColliderComponent : MonoBehaviour
 {
     private BoxCollider2D _collider;
+    
     void Start()
     {
         _collider = GetComponents<BoxCollider2D>()[0];

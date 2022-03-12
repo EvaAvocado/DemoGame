@@ -7,10 +7,12 @@ using UnityEngine.InputSystem;
 
 public class CheatController : MonoBehaviour
 {
-    private string _currentInput;
+    
     [SerializeField] private float _inputTimeToLive;
     [SerializeField] private CheatItem[] _cheats;
+    private string _currentInput;
     private float _inputTime;
+    
     private void Awake()
     {
         //Подписка на прослушивание метода OnTextInput с клавиатуры

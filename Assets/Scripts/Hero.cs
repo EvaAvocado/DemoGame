@@ -11,9 +11,6 @@ public class Hero : MonoBehaviour
     [SerializeField] private float _jumpForce;
     public int _damage = 2;
     
-    private Rigidbody2D _rb;
-    private Animator _animator;
-
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _groundCheckRadius;
     [SerializeField] private Vector3 _groundCheckPositionDelta;
@@ -31,28 +28,29 @@ public class Hero : MonoBehaviour
     [SerializeField] private SpawnComponent _particleRun;
     [SerializeField] private SpawnComponent _particleJump;
     [SerializeField] private SpawnComponent _particleJumpDown;
-
-    [SerializeField] private float _jumpDownVelocity;
-
     [SerializeField] private Transform _additionalPosition;
+    
+    [SerializeField] private float _jumpDownVelocity;
+    
+    [SerializeField] bool _bloxMoveX = false;
 
     private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
     private static readonly int IsRunningKey = Animator.StringToHash("is-running");
     private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
     
-    
+    private Rigidbody2D _rb;
+    private Animator _animator;
+
     private float _directionHorizontal;
     private float _directionVertical;
-    private bool _allowSecondJump;
+    private bool _allowSecondJump = true;
+    private bool _horizontalMove = true;
     
-    private int _points;
+    private bool _windy = false;
+    private bool _windDirectionRight = true;
 
-    private bool _horizontalMove;
-    private bool _windy;
-    private bool _windDirectionRight;
-
-    [SerializeField] bool _bloxMoveX;
-
+    private GameSession _session;
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -61,15 +59,15 @@ public class Hero : MonoBehaviour
 
     private void Start()
     {
+        _session = FindObjectOfType<GameSession>();
+        
         _currentSpeed = _speed;
-        _points = 0;
-        _allowSecondJump = true;
-        _horizontalMove = true;
-        _windy = false;
-        _windDirectionRight = true;
-        _bloxMoveX = false;
         _platformCheckRadius = _groundCheckRadius;
         _platformCheckPositionDelta = _groundCheckPositionDelta;
+        var health = GetComponent<HealthComponent>();
+        
+
+        transform.position = _session.playerData.playerPositionAfterLoadingScene;
     }
 
     private void Update()
@@ -95,6 +93,16 @@ public class Hero : MonoBehaviour
         {
             Animations();
         }
+    }
+
+    public void SetMaxHealth(int maxHealth)
+    {
+        _session.playerData.maxHealth = maxHealth;
+    }
+    
+    public void OnHealthChange(int currentHealth)
+    {
+        _session.playerData.currentHealth = currentHealth;
     }
 
     private void Animations()
@@ -171,12 +179,6 @@ public class Hero : MonoBehaviour
                 interactable.Interact();
             }
         }
-    }
-
-    public void AddPoints(int count)
-    {
-        _points += count;
-        print("Points: " + _points);
     }
 
     //Отскок
@@ -293,7 +295,7 @@ public class Hero : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.IsInLayer(_groundLayer))
+        if (other.gameObject.CompareTag("Ground"))
         {
             var contact = other.contacts[0];
             if (contact.relativeVelocity.y >= _jumpDownVelocity)

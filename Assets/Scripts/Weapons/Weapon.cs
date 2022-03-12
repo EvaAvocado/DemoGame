@@ -14,16 +14,23 @@ public class Weapon : MonoBehaviour
 
     private float _timeBeforeApplyRay = 0;
     public bool attackPhase = false;
-    private Gem currentGem;
+
+    private GameSession _session;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Start()
+    {
+        _session = FindObjectOfType<GameSession>();
+        _session.playerData.currentGem = Gem.Nothing;
+    }
+
     private void Update()
     {
-        switch (currentGem)
+        switch (_session.playerData.currentGem)
         {
             case Gem.White:
                 if (_timeBeforeApplyRay >= 0)
@@ -84,8 +91,8 @@ public class Weapon : MonoBehaviour
 
     public void SetCurrentGem(string enumName)
     {
-        Enum.TryParse<Gem>(enumName, out currentGem);
-        ShowGemSprite(currentGem);
+        Enum.TryParse<Gem>(enumName, out _session.playerData.currentGem);
+        ShowGemSprite(_session.playerData.currentGem);
     }
 
     public enum Gem

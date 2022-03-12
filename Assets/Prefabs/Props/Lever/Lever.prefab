@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 871579631605267129}
   - component: {fileID: 871579631605267124}
   - component: {fileID: 871579631605267127}
+  - component: {fileID: 2574877174908442349}
   - component: {fileID: 871579631605267126}
   m_Layer: 7
   m_Name: Lever
@@ -158,9 +159,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MoveComponent, Assembly-CSharp
-        m_MethodName: NextVerticalPosition
+      - m_Target: {fileID: 2574877174908442349}
+        m_TargetAssemblyTypeName: NextLevelComponent, Assembly-CSharp
+        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -168,8 +169,21 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2574877174908442349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871579631605267130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30156e5b9e148d0448e328afc90a527d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneName: Labyrinth
 --- !u!114 &871579631605267126
 MonoBehaviour:
   m_ObjectHideFlags: 0

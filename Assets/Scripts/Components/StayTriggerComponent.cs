@@ -7,6 +7,7 @@ public class StayTriggerComponent : MonoBehaviour
     [SerializeField] private String _tag;
     [SerializeField] private UnityEvent _actionEnter;
     [SerializeField] private UnityEvent _actionExit;
+    
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag(_tag))
