@@ -17582,7 +17582,7 @@ MonoBehaviour:
   level1Data:
     stateColorLevel: 0
     stateWhiteGem: 0
-    stateDoorStone: 1
+    stateDoorStone: 0
     stateGreyStone: 0
 --- !u!4 &1589350465
 Transform:

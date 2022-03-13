@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 636772199}
   - component: {fileID: 636772197}
   - component: {fileID: 636772198}
-  - component: {fileID: 4585560154935700266}
   - component: {fileID: 1297409259160600688}
   - component: {fileID: 5874280542180839837}
   m_Layer: 7
@@ -167,18 +166,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4585560154935700266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219261295478717587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736d41760f7fe9e41b7d629bc53cea29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _enabled: 1
 --- !u!114 &1297409259160600688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,10 +182,10 @@ MonoBehaviour:
   _opened:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4585560154935700266}
-        m_TargetAssemblyTypeName: OnOffInteractableComponent, Assembly-CSharp
-        m_MethodName: OnOffComponent
-        m_Mode: 6
+      - m_Target: {fileID: 5874280542180839837}
+        m_TargetAssemblyTypeName: ChangeColorComponent, Assembly-CSharp
+        m_MethodName: ChangeColor
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -206,10 +194,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5874280542180839837}
-        m_TargetAssemblyTypeName: ChangeColorComponent, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 1
+      - m_Target: {fileID: 636772198}
+        m_TargetAssemblyTypeName: InteractableComponent, Assembly-CSharp
+        m_MethodName: SetEnabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -230,4 +218,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458bc49c37ff87749be39cd55673314d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0, g: 0, b: 0, a: 0}
+  _color: {r: 0, g: 0, b: 0, a: 1}
