@@ -13,7 +13,8 @@ public class Weapon : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     private float _timeBeforeApplyRay = 0;
-    public bool attackPhase = false;
+    [SerializeField] private bool _attackPhase = false;
+    public bool attackPhase => _attackPhase;
 
     private GameSession _session;
 
@@ -51,11 +52,11 @@ public class Weapon : MonoBehaviour
     {
         if (direction < 0)
         {
-            attackPhase = true;
+            _attackPhase = true;
         }
         else if (direction <= 0)
         {
-            attackPhase = false;
+            _attackPhase = false;
         }
     }
 
@@ -72,7 +73,7 @@ public class Weapon : MonoBehaviour
             var enemy = target.GetComponent<HealthComponent>();
             if (enemy != null)
             {
-                enemy.ApplyDamage(_hero._damage);
+                enemy.ApplyDamage(_hero.damage);
             }
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class InteractableComponent : MonoBehaviour
 {
     [SerializeField] private UnityEvent _action;
-    [SerializeField] bool _enabled = true;
+    [SerializeField] private bool _enabled = true;
 
     public void Interact()
     {
