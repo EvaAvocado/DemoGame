@@ -13,8 +13,6 @@ public class Creature : MonoBehaviour
         [Header("Checkers")]
         [SerializeField] private LayerCheckComponent _groundCheck;
         [SerializeField] protected SpawnListComponent Particles;
-
-        public int damage => _damage;
         
         protected float CurrentSpeed;
         protected Rigidbody2D Rb;
@@ -22,14 +20,18 @@ public class Creature : MonoBehaviour
         protected float DirectionHorizontal;
         protected bool IsGrounded;
         
+        public int damage => _damage;
+        public float currentSpeed => CurrentSpeed;
+        public float speed => _speed;
+        
         private bool _allowSecondJump = true;
         private bool _windy = false;
         private bool _windDirectionRight = true;
 
-        private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
+        private static readonly int IsGroundKey = Animator.StringToHash("is-not-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
-            
+        
         protected virtual void Awake()
         {
             Rb = GetComponent<Rigidbody2D>();
@@ -82,11 +84,10 @@ public class Creature : MonoBehaviour
             }
         }
         
-        private void Animations()
+        protected virtual void Animations()
         {
             Animator.SetBool(IsRunningKey, DirectionHorizontal != 0);
             Animator.SetFloat(VerticalVelocityKey, Rb.velocity.y);
-            Animator.SetBool(IsGroundKey, IsGrounded);
         }
 
         public void Jump()
@@ -94,13 +95,17 @@ public class Creature : MonoBehaviour
             if (IsGrounded)
             {
                 Rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-                Particles.Spawn("ParticleJump");
+                SpawnParticleJump(8);
 
             } else if (!IsGrounded && _allowSecondJump)
             {
                 Rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
                 _allowSecondJump = false;
-                Particles.Spawn("ParticleJump");
+                SpawnParticleJump(8);
+            }
+            if (!IsGrounded)
+            {
+                Animator.SetTrigger(IsGroundKey);
             }
         }
         
@@ -110,18 +115,25 @@ public class Creature : MonoBehaviour
             {
                 Rb.velocity = new Vector2(Rb.velocity.x, Rb.velocity.y * 0.5f);
             }
+            if (!IsGrounded)
+            {
+                Animator.SetTrigger(IsGroundKey);
+            }
         }
         
-        private void SpawnParticleJump()
+        private void SpawnParticleJump(int time)
         {
-            StartCoroutine(TimerToSpawnParticleJump());
+            StartCoroutine(TimerToSpawnParticleJump(time));
         }
     
-        IEnumerator TimerToSpawnParticleJump()
+        IEnumerator TimerToSpawnParticleJump(int time)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < time; i++)
             {
-                Particles.Spawn("ParticleJump");
+                if (!Animator.GetCurrentAnimatorStateInfo(0).IsName("climb"))
+                {
+                    Particles.Spawn("ParticleJump");  
+                }
                 yield return new WaitForSeconds(0.03f);
             }
         }
@@ -190,5 +202,10 @@ public class Creature : MonoBehaviour
         public void SetWindDirectionRight(bool status)
         {
             _windDirectionRight = status;
+        }
+
+        public void SetCurrentSpeed(float speed)
+        {
+            CurrentSpeed = speed;
         }
 }

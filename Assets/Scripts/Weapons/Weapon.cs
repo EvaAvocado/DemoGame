@@ -73,7 +73,8 @@ public class Weapon : MonoBehaviour
             var enemy = target.GetComponent<HealthComponent>();
             if (enemy != null)
             {
-                enemy.ApplyDamage(_hero.damage);
+                print(enemy);
+                enemy.ApplyDamage(_hero.damage/2);
             }
         }
     }

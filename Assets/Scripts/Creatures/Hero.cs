@@ -16,7 +16,6 @@ public class Hero : Creature
     [SerializeField] private Transform _additionalPosition;
     [SerializeField] bool _bloxMoveX = false;
 
-   
     private bool _isPlatform;
     private float _directionVertical;
     private Collider2D[] _interactionResult = new Collider2D[5];
@@ -87,7 +86,7 @@ public class Hero : Creature
         Rb.velocity = Vector2.zero;
         Animator.Play("climb");
     }
-    
+
     public void SetDirectionVertical(float direction)
     {
         _directionVertical = direction;
