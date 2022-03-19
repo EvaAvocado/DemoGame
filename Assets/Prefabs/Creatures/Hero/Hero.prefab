@@ -83,7 +83,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1153450375
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 462064168812210549, guid: 1d291fabfe510dc41a59876eb50ec898, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,9 +109,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _jumpForce: 13
+  JumpForce: 13
   _damage: 3
   _jumpDownVelocity: 10
+  _countOfJumpParticles: 8
   _groundCheck: {fileID: 7168428051850153716}
   Particles: {fileID: 7168428050809604743}
   _platformLayer:
@@ -569,7 +570,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1153450375
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -2511356291957038328, guid: 12273e66beed1ca4facfeaaf4b621257, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4634,7 +4635,7 @@ ParticleSystem:
     quality: 0
     voxelSize: 0.5
     collisionMessages: 1
-    collidesWithDynamic: 0
+    collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
     enabled: 1

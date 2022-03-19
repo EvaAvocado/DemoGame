@@ -6,41 +6,85 @@ using UnityEngine.Events;
 public class SlimeAI : MonoBehaviour
 {
     [Header("Params")] [SerializeField] private LayerCheckComponent _vision;
-    [SerializeField] private float _alarmDelay = 0.5f;
-    [SerializeField] private float _missCooldown = 0.5f;
-    [SerializeField] private float _makeDamageCooldown = 0.5f;
-    
+    [SerializeField] private float _alarmDelay = 0.4f;
+    [SerializeField] private float _missCooldown = 1f;
+    [SerializeField] private float _timeBeforeApplyDamage = 0;
+    [SerializeField] private Transform[] _points;
+    [SerializeField] private float _treshold = 0.5f;
+
     [Header("Events")]
     [SerializeField] private OnDamage _makeDamage;
 
+    public bool allowJump = true;
+    public bool stopMoveX = false;
+    
     private SpawnListComponent _particles;
     private Coroutine _current;
     private GameObject _target;
     private Creature _creature;
-    private Patrol _patrol;
+    
+    private int _destinationPointIndex;
+    private bool _patrooling = true;
 
     private void Awake()
     {
         _particles = GetComponent<SpawnListComponent>();
         _creature = GetComponent<Creature>();
-        _patrol = GetComponent<Patrol>();
     }
 
-    private void Start()
+    private void Update()
     {
-        StartCoroutine(_patrol.DoPatrol());
+        if (_timeBeforeApplyDamage >= 0)
+        {
+            _timeBeforeApplyDamage -= Time.deltaTime;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (_patrooling)
+        {
+          DoPatrol();  
+        }
+
+        if (stopMoveX)
+        {
+            _creature.SetDirectionHorizontal(0);
+        }
+    }
+
+    private void DoPatrol()
+    {
+        if (IsOnPoint())
+        {
+            _destinationPointIndex = (int) Mathf.Repeat(_destinationPointIndex + 1, _points.Length);
+        }
+
+        var direction = _points[_destinationPointIndex].position - transform.position;
+        if (allowJump)
+        {
+          _creature.SetDirectionHorizontal(direction.normalized.x);
+          _creature.Jump();  
+        }
+    }
+
+    private bool IsOnPoint()
+    {
+        return (_points[_destinationPointIndex].position - transform.position).magnitude < _treshold;
     }
 
     public void OnHeroIsVision(GameObject go)
     {
         _target = go;
-        _creature.SetCurrentSpeed(_creature.currentSpeed * 2);
+        _creature.SetCurrentSpeed(_creature.currentSpeed * 2f);
+        _patrooling = false;
         StartState(AgrToHero());
     }
 
     private IEnumerator AgrToHero()
     {
-        _particles.Spawn("Exclamation");
+        yield return new WaitForSeconds(_alarmDelay);
+        _particles.Spawn("ParticleExclamation"); 
         yield return new WaitForSeconds(_alarmDelay);
         StartState(GoToHero());
     }
@@ -53,15 +97,20 @@ public class SlimeAI : MonoBehaviour
             yield return null;
         }
         _creature.SetCurrentSpeed(_creature.speed);
-        _particles.Spawn("Miss");
+        
+        _particles.Spawn("ParticleMiss");
         yield return new WaitForSeconds(_missCooldown);
+        _patrooling = true;
     }
 
     private void SetDirectionToTarget()
     {
         var direction = _target.transform.position - transform.position;
-        direction.y = 0;
-        _creature.SetDirectionHorizontal(direction.normalized.x);
+        if (allowJump)
+        {
+          _creature.SetDirectionHorizontal(direction.normalized.x);
+          _creature.Jump();  
+        }
     }
 
     private void StartState(IEnumerator coroutine)
@@ -76,18 +125,16 @@ public class SlimeAI : MonoBehaviour
         _current = StartCoroutine(coroutine);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(MakeDamage());
+            if (_timeBeforeApplyDamage < 0)
+            {
+                _timeBeforeApplyDamage = 0.5f;
+                _makeDamage?.Invoke(_creature.damage);
+            }
         }
-    }
-
-    private IEnumerator MakeDamage()
-    {
-        _makeDamage?.Invoke(_creature.damage);
-        yield return new WaitForSeconds(_makeDamageCooldown);
     }
 
     public void OnDie()

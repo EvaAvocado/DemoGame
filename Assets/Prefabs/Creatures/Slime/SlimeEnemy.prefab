@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &942118859011178552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 196657742071069709}
+  - component: {fileID: 4064022154616601967}
+  m_Layer: 9
+  m_Name: ParticleMiss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &196657742071069709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942118859011178552}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.26000023, y: 0.40199995, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6079331959947645869}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4064022154616601967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942118859011178552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbbf224c1651bf47869aac73c74e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 196657742071069709}
+  _prefab: {fileID: 3732116248448505132, guid: 5183b6e57794e4e4f89d16e32b3c11c3, type: 3}
 --- !u!1 &6079331959054712703
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,6 +127,7 @@ GameObject:
   - component: {fileID: 6079331959947645868}
   - component: {fileID: 6079331959947645870}
   - component: {fileID: 6079331959947645865}
+  - component: {fileID: 7879056580276867976}
   m_Layer: 9
   m_Name: Slime
   m_TagString: Enemy
@@ -100,7 +146,10 @@ Transform:
   m_LocalPosition: {x: 5, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3089307815959150874}
   - {fileID: 6079331960993466038}
+  - {fileID: 8735538695673293865}
+  - {fileID: 196657742071069709}
   - {fileID: 6079331960025983478}
   - {fileID: 6079331960050723349}
   m_Father: {fileID: 6079331959285409318}
@@ -151,7 +200,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -191,9 +240,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
-  _jumpForce: 0
+  JumpForce: 10
   _damage: 2
-  _jumpDownVelocity: 0
+  _jumpDownVelocity: 1
+  _countOfJumpParticles: 5
+  _secondJumpEnabled: 0
   _groundCheck: {fileID: 6079331960025983473}
   Particles: {fileID: 6079331959947645846}
 --- !u!114 &6079331959947645841
@@ -211,7 +262,11 @@ MonoBehaviour:
   _vision: {fileID: 6079331960050723351}
   _alarmDelay: 0.5
   _missCooldown: 0.5
-  _makeDamageCooldown: 0.5
+  _timeBeforeApplyDamage: 0
+  _points:
+  - {fileID: 6079331960670292704}
+  - {fileID: 6079331959054712702}
+  _treshold: 0.5
   _makeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -227,6 +282,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  allowJump: 1
+  stopMoveX: 0
 --- !u!114 &6079331959947645843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc48f7e4a1fb84cafcad381495b5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 20
+  _health: 5
   _onSetMaxHealth:
     m_PersistentCalls:
       m_Calls: []
@@ -249,7 +306,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7879056580276867976}
         m_TargetAssemblyTypeName: SpawnComponent, Assembly-CSharp
         m_MethodName: Spawn
         m_Mode: 1
@@ -308,8 +365,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawners:
-  - Id: ParticleJump
+  - Id: ParticleJumpDown
     Component: {fileID: 6079331960993466039}
+  - Id: ParticleJump
+    Component: {fileID: 3412616431857596772}
+  - Id: ParticleExclamation
+    Component: {fileID: 4018453535371253150}
+  - Id: ParticleMiss
+    Component: {fileID: 4064022154616601967}
 --- !u!114 &6079331959947645868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,9 +418,23 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0074311523, y: -0.26569793}
-  m_Size: {x: 0.6185861, y: 0.5261671}
+  m_Offset: {x: -0.0039618914, y: -0.25182262}
+  m_Size: {x: 0.69489866, y: 0.48454386}
   m_Direction: 1
+--- !u!114 &7879056580276867976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079331959947645844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbbf224c1651bf47869aac73c74e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 6079331959947645869}
+  _prefab: {fileID: 11718375473410657, guid: ad29087229683be4b8adde846dcd119e, type: 3}
 --- !u!1 &6079331960025983479
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +465,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6079331959947645869}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &6079331960025983472
 CircleCollider2D:
@@ -453,7 +530,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6079331959947645869}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6079331960050723348
 BoxCollider2D:
@@ -468,7 +545,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.051941633, y: 0.21261239}
+  m_Offset: {x: 0.5661156, y: 0.47866726}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -479,7 +556,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.702066, y: 1.8944378}
+  m_Size: {x: 9.187723, y: 5.0586224}
   m_EdgeRadius: 0
 --- !u!114 &6079331960050723351
 MonoBehaviour:
@@ -580,11 +657,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6079331960993466036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.39, z: 0}
+  m_LocalPosition: {x: 0.27, y: -0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6079331959947645869}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6079331960993466039
 MonoBehaviour:
@@ -599,4 +676,94 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 6079331960993466038}
-  _prefab: {fileID: 8087821219797601557, guid: 47ecdef9a29a4a2478bef8749601232c, type: 3}
+  _prefab: {fileID: 8087821219797601557, guid: 764636c5f373c2f46894258f7c6f902a, type: 3}
+--- !u!1 &7016133886556413019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3089307815959150874}
+  - component: {fileID: 3412616431857596772}
+  m_Layer: 0
+  m_Name: ParticleJumpTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3089307815959150874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016133886556413019}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6079331959947645869}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3412616431857596772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016133886556413019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbbf224c1651bf47869aac73c74e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 3089307815959150874}
+  _prefab: {fileID: 7366597871307147644, guid: 5ab1e5ab82e54ce459ac69edf115c64d, type: 3}
+--- !u!1 &8007660800140781268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8735538695673293865}
+  - component: {fileID: 4018453535371253150}
+  m_Layer: 9
+  m_Name: ParticleExclamation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8735538695673293865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007660800140781268}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.26000023, y: 0.40199995, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6079331959947645869}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4018453535371253150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007660800140781268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbbf224c1651bf47869aac73c74e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 8735538695673293865}
+  _prefab: {fileID: 3732116248448505132, guid: 36ab1d65374c3974f9c34fc7454d93d9, type: 3}

@@ -6,9 +6,11 @@ public class Creature : MonoBehaviour
 {       
         [Header("Params")]
         [SerializeField] private float _speed;
-        [SerializeField] private float _jumpForce;
+        [SerializeField] protected float JumpForce;
         [SerializeField] private int _damage = 2;
         [SerializeField] private float _jumpDownVelocity;
+        [SerializeField] private int _countOfJumpParticles;
+        [SerializeField] private bool _secondJumpEnabled = true;
        
         [Header("Checkers")]
         [SerializeField] private LayerCheckComponent _groundCheck;
@@ -19,11 +21,14 @@ public class Creature : MonoBehaviour
         protected Animator Animator;
         protected float DirectionHorizontal;
         protected bool IsGrounded;
-        
+
+        public bool isGrounded => IsGrounded;
+        public Rigidbody2D rb => Rb;
         public int damage => _damage;
         public float currentSpeed => CurrentSpeed;
         public float speed => _speed;
         
+        private bool _allowFirstJump = true;
         private bool _allowSecondJump = true;
         private bool _windy = false;
         private bool _windDirectionRight = true;
@@ -47,6 +52,7 @@ public class Creature : MonoBehaviour
         {
             IsGrounded = _groundCheck.isTouchingLayer;
             if (IsGrounded) _allowSecondJump = true;
+            if (!IsGrounded) _allowFirstJump = true;
         }
 
         //Choose direction: to right - 1, to left - (-1)
@@ -92,16 +98,19 @@ public class Creature : MonoBehaviour
 
         public void Jump()
         {
-            if (IsGrounded)
+            if (IsGrounded && _allowFirstJump)
             {
-                Rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-                SpawnParticleJump(8);
+                Rb.velocity = new Vector2(Rb.velocity.x, 0.0f); 
+                Rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+                SpawnParticleJump(_countOfJumpParticles);
+                _allowFirstJump = false;
 
-            } else if (!IsGrounded && _allowSecondJump)
+            }
+            if (!IsGrounded && _allowSecondJump && _secondJumpEnabled)
             {
-                Rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                Rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+                SpawnParticleJump(_countOfJumpParticles);
                 _allowSecondJump = false;
-                SpawnParticleJump(8);
             }
             if (!IsGrounded)
             {
@@ -121,7 +130,7 @@ public class Creature : MonoBehaviour
             }
         }
         
-        private void SpawnParticleJump(int time)
+        protected void SpawnParticleJump(int time)
         {
             StartCoroutine(TimerToSpawnParticleJump(time));
         }
@@ -159,7 +168,7 @@ public class Creature : MonoBehaviour
         IEnumerator TimerToDelayRebound()
         {
             var dir = DirectionHorizontal > 0 ? Vector2.left : Vector2.right;
-            Rb.AddForce (Vector2.up  * _jumpForce + dir * _jumpForce * 0.25f, ForceMode2D.Impulse);
+            Rb.AddForce (Vector2.up  * JumpForce + dir * JumpForce * 0.25f, ForceMode2D.Impulse);
             yield return new WaitForSeconds(1f);
         }
         

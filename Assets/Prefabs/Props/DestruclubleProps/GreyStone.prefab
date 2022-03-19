@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 994555106729499363}
   - component: {fileID: 994555106729499360}
   - component: {fileID: 2771069182153247709}
+  - component: {fileID: 1843098656}
   m_Layer: 9
   m_Name: GreyStone
   m_TagString: Enemy
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc48f7e4a1fb84cafcad381495b5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
+  _health: 5
   _onSetMaxHealth:
     m_PersistentCalls:
       m_Calls: []
@@ -191,3 +192,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 994555106729499367}
   _prefab: {fileID: 11718375473410657, guid: 963f313e24ae2fb4d93001cc89c2b817, type: 3}
+--- !u!50 &1843098656
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994555106729499365}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
