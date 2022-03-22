@@ -84,7 +84,7 @@ public class SlimeAI : MonoBehaviour
     private IEnumerator AgrToHero()
     {
         yield return new WaitForSeconds(_alarmDelay);
-        _particles.Spawn("ParticleExclamation"); 
+        _particles.SpawnWithoutLossyScale("ParticleExclamation"); 
         yield return new WaitForSeconds(_alarmDelay);
         StartState(GoToHero());
     }
@@ -98,7 +98,8 @@ public class SlimeAI : MonoBehaviour
         }
         _creature.SetCurrentSpeed(_creature.speed);
         
-        _particles.Spawn("ParticleMiss");
+        yield return new WaitForSeconds(_missCooldown);
+        _particles.SpawnWithoutLossyScale("ParticleMiss");
         yield return new WaitForSeconds(_missCooldown);
         _patrooling = true;
     }

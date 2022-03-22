@@ -35,6 +35,7 @@ public class Creature : MonoBehaviour
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-not-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
+        private static readonly int IsHit = Animator.StringToHash("hit");
         private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
         
         protected virtual void Awake()
@@ -154,11 +155,17 @@ public class Creature : MonoBehaviour
                 var contact = other.contacts[0];
                 if (contact.relativeVelocity.y >= _jumpDownVelocity)
                 {
-                    Particles.Spawn("ParticleJumpDown");
+                    StartCoroutine(TimerToDealyJumpDown());
                 }
             }
         }
-        
+
+        IEnumerator TimerToDealyJumpDown()
+        {
+            yield return new WaitForSeconds(0.05f);
+            Particles.Spawn("ParticleJumpDown");
+        }
+
         public void Rebound()
         {
             StartCoroutine(TimerToDelayRebound());
@@ -170,6 +177,12 @@ public class Creature : MonoBehaviour
             var dir = DirectionHorizontal > 0 ? Vector2.left : Vector2.right;
             Rb.AddForce (Vector2.up  * JumpForce + dir * JumpForce * 0.25f, ForceMode2D.Impulse);
             yield return new WaitForSeconds(1f);
+        }
+
+        public void TakeDamage()
+        {
+            Rebound();
+            Animator.SetTrigger(IsHit);
         }
         
         private void Windy(bool windDirectionRight)

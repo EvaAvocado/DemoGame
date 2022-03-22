@@ -17,6 +17,20 @@ public class SpawnListComponent : MonoBehaviour
             }
         }
     }
+    
+    public void SpawnWithoutLossyScale(string id)
+    {
+        foreach (var data in _spawners)
+        {
+            if (data.Id == id)
+            {
+                data.Component.SpawnWithoutLossyScale();
+                break;
+            }
+        }
+    }
+    
+    
 
     [Serializable]
     public class SpawnData

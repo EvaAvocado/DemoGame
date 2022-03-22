@@ -1,8 +1,12 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hero : Creature
 {
+    [Header("UI")]
+    [SerializeField] private Image _healthBar;
+    [SerializeField] private float _currentHealth;
+
     [Header("Platform settings")]
     [SerializeField] private LayerMask _platformLayer;
     [SerializeField] private float _platformCheckRadius = 0.25f;
@@ -54,11 +58,22 @@ public class Hero : Creature
     public void SetMaxHealth(int maxHealth)
     {
         _session.playerData.maxHealth = maxHealth;
+        
+        _currentHealth = (float) maxHealth/_session.playerData.maxHealth;
+        SetCurrentHealthInBar();
     }
     
     public void OnHealthChange(int currentHealth)
     {
         _session.playerData.currentHealth = currentHealth;
+        
+        _currentHealth = (float) currentHealth/_session.playerData.maxHealth;
+        SetCurrentHealthInBar();
+    }
+
+    private void SetCurrentHealthInBar()
+    {
+        _healthBar.fillAmount = _currentHealth;
     }
 
     public void Interact()

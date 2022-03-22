@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942118859011178552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.26000023, y: 0.40199995, z: 0}
+  m_LocalPosition: {x: 0, y: 0.40199995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6079331959947645869}
@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 6079331959947645847}
   - component: {fileID: 6079331959947645841}
   - component: {fileID: 6079331959947645843}
-  - component: {fileID: 6079331959947645871}
   - component: {fileID: 6079331959947645846}
   - component: {fileID: 6079331959947645868}
   - component: {fileID: 6079331959947645870}
@@ -296,13 +295,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc48f7e4a1fb84cafcad381495b5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 8
   _onSetMaxHealth:
     m_PersistentCalls:
       m_Calls: []
   _onDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6079331959947645847}
+        m_TargetAssemblyTypeName: Creature, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -336,22 +347,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6079331959947645871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6079331959947645844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029d32aa6d99497b940da808d422f0f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _points:
-  - {fileID: 6079331960670292704}
-  - {fileID: 6079331959054712702}
-  _treshold: 0.5
 --- !u!114 &6079331959947645846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +540,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5661156, y: 0.47866726}
+  m_Offset: {x: 0.13427639, y: 0.47866726}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -556,7 +551,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.187723, y: 5.0586224}
+  m_Size: {x: 8.324045, y: 5.0586224}
   m_EdgeRadius: 0
 --- !u!114 &6079331960050723351
 MonoBehaviour:
@@ -657,7 +652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6079331960993466036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -0.39, z: 0}
+  m_LocalPosition: {x: 0.14, y: -0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6079331959947645869}
@@ -747,7 +742,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8007660800140781268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.26000023, y: 0.40199995, z: 0}
+  m_LocalPosition: {x: 0, y: 0.40199995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6079331959947645869}
