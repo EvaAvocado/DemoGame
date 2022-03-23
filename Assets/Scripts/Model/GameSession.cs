@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class GameSession : MonoBehaviour
 {
@@ -30,7 +29,5 @@ public class GameSession : MonoBehaviour
         }
         return false;
     }
-    
-    
-    
-    }
+
+}

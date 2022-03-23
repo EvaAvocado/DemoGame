@@ -34,9 +34,9 @@ public class Creature : MonoBehaviour
         private bool _windDirectionRight = true;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-not-ground");
-        private static readonly int IsRunningKey = Animator.StringToHash("is-running");
+        protected static readonly int IsRunningKey = Animator.StringToHash("is-running");
         private static readonly int IsHit = Animator.StringToHash("hit");
-        private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
+        protected static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
         
         protected virtual void Awake()
         {
@@ -94,7 +94,14 @@ public class Creature : MonoBehaviour
         protected virtual void Animations()
         {
             Animator.SetBool(IsRunningKey, DirectionHorizontal != 0);
-            Animator.SetFloat(VerticalVelocityKey, Rb.velocity.y);
+            if (IsGrounded)
+            {
+                Animator.SetFloat(VerticalVelocityKey, 0);
+            }
+            else
+            {
+              Animator.SetFloat(VerticalVelocityKey, Rb.velocity.y);  
+            }
         }
 
         public void Jump()
@@ -169,7 +176,6 @@ public class Creature : MonoBehaviour
         public void Rebound()
         {
             StartCoroutine(TimerToDelayRebound());
-
         }
     
         IEnumerator TimerToDelayRebound()

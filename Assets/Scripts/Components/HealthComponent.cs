@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,6 +18,12 @@ public class HealthComponent : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(TimerToSetMaxHealth());
+    }
+
+    IEnumerator TimerToSetMaxHealth()
+    {
+        yield return new WaitForSeconds(0.01f);
         _maxHealth = _health;
         _onSetMaxHealth?.Invoke(_maxHealth);
     }

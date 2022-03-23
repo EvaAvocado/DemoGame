@@ -6,7 +6,9 @@ public class Level1Data
     public ColorLevel stateColorLevel;
     public bool stateWhiteGem;
     public bool stateDoorStone;
-    public bool stateGreyStone;
+    public bool stateEndLevel;
+    public bool stateKey;
+    public bool stateChest;
 
     public enum ColorLevel
     {

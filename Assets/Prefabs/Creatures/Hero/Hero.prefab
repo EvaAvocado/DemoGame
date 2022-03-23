@@ -118,6 +118,10 @@ MonoBehaviour:
   Particles: {fileID: 7168428050809604743}
   _healthBar: {fileID: 0}
   _currentHealth: 0
+  _uhuvdus:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _platformLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -286,6 +290,18 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7168428050809604749}
+        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
+        m_MethodName: SubUhuvdu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ReloadLevelComponent, Assembly-CSharp
         m_MethodName: ReloadLevel
@@ -4655,13 +4671,20 @@ ParticleSystem:
   TriggerModule:
     enabled: 1
     serializedVersion: 2
-    inside: 0
+    inside: 1
     outside: 0
     enter: 1
     exit: 0
     colliderQueryMode: 0
-    radiusScale: 0.0001
+    radiusScale: 0.01
     primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
   SubModule:
     serializedVersion: 2

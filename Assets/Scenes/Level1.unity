@@ -818,6 +818,18 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1801889954}
+        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
+        m_MethodName: SubUhuvdu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 293103543}
         m_TargetAssemblyTypeName: ReloadLevelComponent, Assembly-CSharp
         m_MethodName: ReloadLevel
@@ -12591,7 +12603,7 @@ MonoBehaviour:
     playerPositionAfterLoadingScene: {x: 17.25, y: -2, z: 0}
     maxHealth: 100
     currentHealth: 100
-    uhuwdu: 0
+    uhuwdu: 3
     currentGem: 0
   level1Data:
     stateColorLevel: 0
@@ -14536,13 +14548,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7168428050809604744, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
-      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 293103543}
     - target: {fileID: 7168428050809604749, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
       propertyPath: _healthBar
       value: 
       objectReference: {fileID: 638585355}
+    - target: {fileID: 7168428050809604749, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
+      propertyPath: _uhuvdus.Array.data[0]
+      value: 
+      objectReference: {fileID: 1359551171}
+    - target: {fileID: 7168428050809604749, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
+      propertyPath: _uhuvdus.Array.data[1]
+      value: 
+      objectReference: {fileID: 393573883}
+    - target: {fileID: 7168428050809604749, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
+      propertyPath: _uhuvdus.Array.data[2]
+      value: 
+      objectReference: {fileID: 1829289553}
     - target: {fileID: 7168428050809604751, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
       propertyPath: m_RootOrder
       value: 2

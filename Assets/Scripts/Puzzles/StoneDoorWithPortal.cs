@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class StoneDoor : MonoBehaviour
+public class StoneDoorWithPortal : MonoBehaviour
 {
     [SerializeField] private UnityEvent _opened;
     private bool status = false;

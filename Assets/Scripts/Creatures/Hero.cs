@@ -3,40 +3,54 @@ using UnityEngine.UI;
 
 public class Hero : Creature
 {
-    [Header("UI")]
-    [SerializeField] private Image _healthBar;
+    [Header("UI")] [SerializeField] private Image _healthBar;
     [SerializeField] private float _currentHealth;
+    [SerializeField] private Image[] _uhuvdus;
 
-    [Header("Platform settings")]
-    [SerializeField] private LayerMask _platformLayer;
+    [Header("Platform settings")] [SerializeField]
+    private LayerMask _platformLayer;
+
     [SerializeField] private float _platformCheckRadius = 0.25f;
     [SerializeField] private Vector3 _platformCheckPositionDelta = new Vector3(0, -0.3f, 0);
-    
-    [Header("Interaction settings")]
-    [SerializeField] private float _interactionRadius;
+
+    [Header("Interaction settings")] [SerializeField]
+    private float _interactionRadius;
+
     [SerializeField] private LayerMask _interactionLayer;
-    
-    [Header("Other settings")]
-    [SerializeField] private Transform _additionalPosition;
+
+    [Header("Other settings")] [SerializeField]
+    private Transform _additionalPosition;
+
     [SerializeField] bool _bloxMoveX = false;
 
     private bool _isPlatform;
     private float _directionVertical;
     private Collider2D[] _interactionResult = new Collider2D[5];
-  
+
     private GameSession _session;
-    
-   protected override void Start()
+
+    private static readonly int IsClimb = Animator.StringToHash("is-climb");
+
+    protected override void Start()
     {
         base.Start();
         _session = FindObjectOfType<GameSession>();
         var health = GetComponent<HealthComponent>();
+        
         transform.position = _session.playerData.playerPositionAfterLoadingScene;
+        
+        CheckUhuvdus();
+        UpdateUhuvduState();
     }
 
     protected override void Update()
-    {   base.Update();
+    {
+        base.Update();
         _isPlatform = IsPlatform();
+        if (!_bloxMoveX)
+        {
+            Animator.SetBool(IsClimb, false);
+        }
     }
 
     protected override void FixedUpdate()
@@ -51,23 +65,23 @@ public class Hero : Creature
     {
         if (!_bloxMoveX)
         {
-           base.LateUpdate();
+            base.LateUpdate();
         }
     }
 
     public void SetMaxHealth(int maxHealth)
     {
         _session.playerData.maxHealth = maxHealth;
-        
-        _currentHealth = (float) maxHealth/_session.playerData.maxHealth;
+
+        _currentHealth = (float) maxHealth / _session.playerData.maxHealth;
         SetCurrentHealthInBar();
     }
-    
+
     public void OnHealthChange(int currentHealth)
     {
         _session.playerData.currentHealth = currentHealth;
-        
-        _currentHealth = (float) currentHealth/_session.playerData.maxHealth;
+
+        _currentHealth = (float) currentHealth / _session.playerData.maxHealth;
         SetCurrentHealthInBar();
     }
 
@@ -78,7 +92,8 @@ public class Hero : Creature
 
     public void Interact()
     {
-        var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius, _interactionResult, _interactionLayer);
+        var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius, _interactionResult,
+            _interactionLayer);
         for (int i = 0; i < size; i++)
         {
             var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
@@ -97,6 +112,7 @@ public class Hero : Creature
 
     public void StartAnimClimb()
     {
+        Animator.SetBool(IsClimb, true);
         _bloxMoveX = true;
         Rb.velocity = Vector2.zero;
         Animator.Play("climb");
@@ -109,7 +125,8 @@ public class Hero : Creature
 
     private bool IsPlatform()
     {
-        var hit = Physics2D.CircleCast(transform.position + _platformCheckPositionDelta, _platformCheckRadius, Vector2.down, 0, _platformLayer);
+        var hit = Physics2D.CircleCast(transform.position + _platformCheckPositionDelta, _platformCheckRadius,
+            Vector2.down, 0, _platformLayer);
         return hit.collider != null;
     }
 
@@ -122,6 +139,63 @@ public class Hero : Creature
         else
         {
             return false;
+        }
+    }
+    
+    private void CheckUhuvdus()
+    {
+        switch (_session.playerData.uhuwdu)
+        {
+            case 3:
+                _uhuvdus[0].enabled = true;
+                _uhuvdus[1].enabled = true;
+                _uhuvdus[2].enabled = true;
+                break;
+            case 2:
+                _uhuvdus[0].enabled = true;
+                _uhuvdus[1].enabled = true;
+                _uhuvdus[2].enabled = false;
+                break;
+            case 1:
+                _uhuvdus[0].enabled = true;
+                _uhuvdus[1].enabled = false;
+                _uhuvdus[2].enabled = false;
+                break;
+            case 0:
+                _uhuvdus[0].enabled = false;
+                _uhuvdus[1].enabled = false;
+                _uhuvdus[2].enabled = false;
+                break;
+        }
+    }
+
+    public void SubUhuvdu()
+    {
+        _session.playerData.uhuwdu = _session.playerData.uhuwdu - 1;
+
+        if (_session.playerData.uhuwdu == -1)
+        {
+            _session.playerData.uhuwdu = 3;
+        }
+    }
+
+    public void UpdateUhuvduState()
+    {
+        if (_uhuvdus[0].enabled == true && _uhuvdus[1].enabled == true && _uhuvdus[2].enabled == true)
+        {
+            _session.level1Data.stateColorLevel = Level1Data.ColorLevel.Green;
+        }
+        else if (_uhuvdus[0].enabled == true && _uhuvdus[1].enabled == true && _uhuvdus[2].enabled == false)
+        {
+            _session.level1Data.stateColorLevel = Level1Data.ColorLevel.Pink;
+        }
+        else if (_uhuvdus[0].enabled == true && _uhuvdus[1].enabled == false && _uhuvdus[2].enabled == false)
+        {
+            _session.level1Data.stateColorLevel = Level1Data.ColorLevel.Blue;
+        }
+        else if (_uhuvdus[0].enabled == false && _uhuvdus[1].enabled == false && _uhuvdus[2].enabled == false)
+        {
+            _session.level1Data.stateColorLevel = Level1Data.ColorLevel.Red;
         }
     }
 }

@@ -26,7 +26,6 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         _session = FindObjectOfType<GameSession>();
-        _session.playerData.currentGem = Gem.Nothing;
     }
 
     private void Update()
@@ -38,6 +37,7 @@ public class Weapon : MonoBehaviour
                 {
                     _timeBeforeApplyRay -= Time.deltaTime;
                 }
+                ShowGemSprite(_session.playerData.currentGem);
                 if (attackPhase)
                 {
                     ApplyRayParticle();

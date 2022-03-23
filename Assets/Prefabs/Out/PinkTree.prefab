@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8925114660399259752}
   m_Layer: 8
-  m_Name: RoseTree
+  m_Name: PinkTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

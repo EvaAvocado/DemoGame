@@ -8,5 +8,5 @@ public class PlayerData
     public int maxHealth;
     public int currentHealth;
     public int uhuwdu;
-    public Weapon.Gem currentGem;
+    public Weapon.Gem currentGem = Weapon.Gem.Nothing;
 }
