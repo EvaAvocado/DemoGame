@@ -4157,6 +4157,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _actionWithGameObjectEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  _actionWithGameObjectExit:
+    m_PersistentCalls:
+      m_Calls: []
   _actionEnter:
     m_PersistentCalls:
       m_Calls:
@@ -4670,7 +4676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData:
-    playerPositionAfterLoadingScene: {x: -2.25, y: 4, z: 0}
+    playerPositionAfterLoadingScene: {x: 33.25, y: 18, z: 0}
     maxHealth: 100
     currentHealth: 100
     uhuwdu: 3
@@ -4802,11 +4808,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7168428050809604751, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.25
+      value: 33.25
       objectReference: {fileID: 0}
     - target: {fileID: 7168428050809604751, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7168428050809604751, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5425,6 +5431,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _actionWithGameObject:
+    m_PersistentCalls:
+      m_Calls: []
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -16499,6 +16508,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _actionWithGameObject:
+    m_PersistentCalls:
+      m_Calls: []
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -24771,14 +24783,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1242564592}
     m_Modifications:
-    - target: {fileID: 3690863661349405719, guid: b1902f8ca08ed8045827b918fc9f6489, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 388372169}
-    - target: {fileID: 6079331959054712702, guid: b1902f8ca08ed8045827b918fc9f6489, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6079331959285409318, guid: b1902f8ca08ed8045827b918fc9f6489, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -24826,10 +24830,6 @@ PrefabInstance:
     - target: {fileID: 6079331959285409319, guid: b1902f8ca08ed8045827b918fc9f6489, type: 3}
       propertyPath: m_Name
       value: SlimeEnemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6079331959285409319, guid: b1902f8ca08ed8045827b918fc9f6489, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6079331959947645841, guid: b1902f8ca08ed8045827b918fc9f6489, type: 3}
       propertyPath: _makeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -26123,7 +26123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394695172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.25, y: 4, z: -10}
+  m_LocalPosition: {x: 33.25, y: 18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 36094727}
@@ -27263,10 +27263,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1242564592}
     m_Modifications:
-    - target: {fileID: 3690863661349405719, guid: b1902f8ca08ed8045827b918fc9f6489, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 388372169}
     - target: {fileID: 6079331959285409318, guid: b1902f8ca08ed8045827b918fc9f6489, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -27492,7 +27488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760999936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.85061836, y: 4.000001, z: -10}
+  m_LocalPosition: {x: 33.25, y: 18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1382126692}

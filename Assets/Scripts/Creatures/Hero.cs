@@ -21,7 +21,7 @@ public class Hero : Creature
     [Header("Other settings")] [SerializeField]
     private Transform _additionalPosition;
 
-    [SerializeField] bool _bloxMoveX = false;
+    [SerializeField] private bool _bloxMoveX = false;
 
     private bool _isPlatform;
     private float _directionVertical;
@@ -118,6 +118,16 @@ public class Hero : Creature
         Animator.Play("climb");
     }
 
+    public void ThrowStone()
+    {
+        if (IsGrounded)
+        {
+            _bloxMoveX = true;
+            Rb.velocity = new Vector2(0, Rb.velocity.y);
+            Animator.Play("throwStone");   
+        }
+    }
+    
     public void SetDirectionVertical(float direction)
     {
         _directionVertical = direction;

@@ -26,12 +26,23 @@ public class HeroInputReader : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        _hero.Interact();
+        if (context.phase == InputActionPhase.Started)
+        {
+            _hero.Interact();
+        }
     }
 
     public void OnVertical(InputAction.CallbackContext context)
     {
         var direction = context.ReadValue<float>();
         _hero.SetDirectionVertical(direction);
+    }
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            _hero.ThrowStone();
+        }
     }
 }

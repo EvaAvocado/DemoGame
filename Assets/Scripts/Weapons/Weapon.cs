@@ -7,15 +7,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Hero _hero;
     [SerializeField] private GemItem[] _gemItems;
     
+    [SerializeField] private Cooldown _whiteGemCooldown;
+    
     [SerializeField] private ParticleSystem _rayParticle;
     [SerializeField] private LayerMask _targetLayer;
     
-    private SpriteRenderer _spriteRenderer;
-
-    private float _timeBeforeApplyRay = 0;
     [SerializeField] private bool _attackPhase = false;
     public bool attackPhase => _attackPhase;
 
+    private SpriteRenderer _spriteRenderer;
     private GameSession _session;
 
     private void Awake()
@@ -33,10 +33,7 @@ public class Weapon : MonoBehaviour
         switch (_session.playerData.currentGem)
         {
             case Gem.White:
-                if (_timeBeforeApplyRay >= 0)
-                {
-                    _timeBeforeApplyRay -= Time.deltaTime;
-                }
+               
                 ShowGemSprite(_session.playerData.currentGem);
                 if (attackPhase)
                 {
@@ -67,14 +64,14 @@ public class Weapon : MonoBehaviour
 
     public void ApplyRayDamage(GameObject target)
     {
-        if (_timeBeforeApplyRay < 0)
+        if (_whiteGemCooldown.IsReady)
         {
-            _timeBeforeApplyRay = 0.5f;
             var enemy = target.GetComponent<HealthComponent>();
             if (enemy != null)
             {
                 enemy.ApplyDamage(_hero.damage/2);
             }
+            _whiteGemCooldown.Reset();
         }
     }
 

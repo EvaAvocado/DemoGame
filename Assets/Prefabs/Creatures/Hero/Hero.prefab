@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4466787764996151937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7959460236937451103}
+  - component: {fileID: 5627196636859508439}
+  m_Layer: 0
+  m_Name: SpawnStoneTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7959460236937451103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4466787764996151937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.271, y: 0.215, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7168428050809604751}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5627196636859508439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4466787764996151937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbbf224c1651bf47869aac73c74e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 7959460236937451103}
+  _prefab: {fileID: 4206838696059931387, guid: dd3602c355ce61a46b9c6ceab447b235, type: 3}
 --- !u!1 &7168428050809604785
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,6 +84,7 @@ Transform:
   - {fileID: 7168428050947130981}
   - {fileID: 7168428050997054218}
   - {fileID: 7168428052685143255}
+  - {fileID: 7959460236937451103}
   - {fileID: 7168428052468575815}
   - {fileID: 7168428051850153717}
   - {fileID: 7168428051832357738}
@@ -239,6 +285,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 652bcf95-85ab-4271-89c5-3b520b12eaf5
     m_ActionName: Hero/Attack[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7168428050809604750}
+        m_TargetAssemblyTypeName: HeroInputReader, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c2845715-aab0-4a06-8d31-13b0059aee4d
+    m_ActionName: Hero/Throw[/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -388,6 +450,8 @@ MonoBehaviour:
     Component: {fileID: 7168428050997054217}
   - Id: ParticleJumpDown
     Component: {fileID: 7168428052685143254}
+  - Id: SpawnThrowStone
+    Component: {fileID: 5627196636859508439}
 --- !u!95 &7168428050809604746
 Animator:
   serializedVersion: 3
@@ -561,7 +625,7 @@ Transform:
   m_Children:
   - {fileID: 7168428051576378419}
   m_Father: {fileID: 7168428050809604751}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7168428051832357739
 SpriteRenderer:
@@ -732,6 +796,8 @@ MonoBehaviour:
       action:
         m_PersistentCalls:
           m_Calls: []
+  _whiteGemCooldown:
+    _valueOfCooldown: 0.5
   _rayParticle: {fileID: 7168428052328432453}
   _targetLayer:
     serializedVersion: 2
@@ -807,6 +873,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 652bcf95-85ab-4271-89c5-3b520b12eaf5
     m_ActionName: Hero/Attack[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c2845715-aab0-4a06-8d31-13b0059aee4d
+    m_ActionName: Hero/Throw[/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -842,7 +912,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7168428050809604751}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &7168428051850153715
 CircleCollider2D:
@@ -5739,7 +5809,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7168428050809604751}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7168428052468575812
 SpriteRenderer:
@@ -5870,6 +5940,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Ground
+  _actionWithGameObject:
+    m_PersistentCalls:
+      m_Calls: []
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -5926,6 +5999,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Ground
+  _actionWithGameObject:
+    m_PersistentCalls:
+      m_Calls: []
   _action:
     m_PersistentCalls:
       m_Calls:

@@ -6,25 +6,27 @@ using UnityEngine.Events;
 public class SlimeAI : MonoBehaviour
 {
     [Header("Params")] [SerializeField] private LayerCheckComponent _vision;
+    [SerializeField] private Cooldown _attackCooldown;
     [SerializeField] private float _alarmDelay = 0.4f;
     [SerializeField] private float _missCooldown = 1f;
-    [SerializeField] private float _timeBeforeApplyDamage = 0;
     [SerializeField] private Transform[] _points;
     [SerializeField] private float _treshold = 0.5f;
 
-    [Header("Events")]
-    [SerializeField] private OnDamage _makeDamage;
+    [Header("Events")] [SerializeField] private OnDamage _makeDamage;
 
     public bool allowJump = true;
     public bool stopMoveX = false;
-    
+
     private SpawnListComponent _particles;
     private Coroutine _current;
-    private GameObject _target;
+    private Vector3 _target;
     private Creature _creature;
-    
+
+    private bool firstAgrToHero = true;
+    private bool _timerToNoise;
+    private bool _isNoise;
+    private bool _isNoiseComplete;
     private int _destinationPointIndex;
-    private bool _patrooling = true;
 
     private void Awake()
     {
@@ -32,40 +34,38 @@ public class SlimeAI : MonoBehaviour
         _creature = GetComponent<Creature>();
     }
 
-    private void Update()
+    private void Start()
     {
-        if (_timeBeforeApplyDamage >= 0)
-        {
-            _timeBeforeApplyDamage -= Time.deltaTime;
-        }
+        StartState(DoPatrol());
     }
 
     private void FixedUpdate()
     {
-        if (_patrooling)
-        {
-          DoPatrol();  
-        }
-
         if (stopMoveX)
         {
             _creature.SetDirectionHorizontal(0);
         }
     }
 
-    private void DoPatrol()
+    private IEnumerator DoPatrol()
     {
-        if (IsOnPoint())
+        while (true)
         {
-            _destinationPointIndex = (int) Mathf.Repeat(_destinationPointIndex + 1, _points.Length);
-        }
+            if (IsOnPoint())
+            {
+                _destinationPointIndex = (int) Mathf.Repeat(_destinationPointIndex + 1, _points.Length);
+            }
 
-        var direction = _points[_destinationPointIndex].position - transform.position;
-        if (allowJump)
-        {
-          _creature.SetDirectionHorizontal(direction.normalized.x);
-          _creature.Jump();  
+            var direction = _points[_destinationPointIndex].position - transform.position;
+            if (allowJump)
+            {
+                _creature.SetDirectionHorizontal(direction.normalized.x);
+                _creature.Jump();
+            }
+
+            yield return null; 
         }
+        
     }
 
     private bool IsOnPoint()
@@ -75,17 +75,41 @@ public class SlimeAI : MonoBehaviour
 
     public void OnHeroIsVision(GameObject go)
     {
-        _target = go;
-        _creature.SetCurrentSpeed(_creature.currentSpeed * 2f);
-        _patrooling = false;
-        StartState(AgrToHero());
+        if (firstAgrToHero)
+        {
+            firstAgrToHero = false;
+            _creature.SetCurrentSpeed(_creature.speed);
+
+            if (!_isNoise)
+            {
+                _target = go.transform.position;
+                _creature.SetCurrentSpeed(_creature.currentSpeed * 2f);
+                StartState(AgrToHero());
+            }  
+        }
+    }
+
+    public void UpdateHeroPosition(GameObject go)
+    {
+        if (!_isNoise)
+        {
+            _target = go.transform.position;
+        }
+
+        if (_isNoiseComplete)
+        {
+            firstAgrToHero = true;
+            _isNoiseComplete = false;
+            OnHeroIsVision(go);
+        }
     }
 
     private IEnumerator AgrToHero()
     {
+        yield return new WaitForSeconds(_alarmDelay * 2);
+        _particles.SpawnWithoutLossyScale("ParticleExclamation");
         yield return new WaitForSeconds(_alarmDelay);
-        _particles.SpawnWithoutLossyScale("ParticleExclamation"); 
-        yield return new WaitForSeconds(_alarmDelay);
+        firstAgrToHero = true;
         StartState(GoToHero());
     }
 
@@ -96,21 +120,22 @@ public class SlimeAI : MonoBehaviour
             SetDirectionToTarget();
             yield return null;
         }
+
         _creature.SetCurrentSpeed(_creature.speed);
-        
-        yield return new WaitForSeconds(_missCooldown);
+
+        yield return new WaitForSeconds(_missCooldown * 2);
         _particles.SpawnWithoutLossyScale("ParticleMiss");
         yield return new WaitForSeconds(_missCooldown);
-        _patrooling = true;
+        StartState(DoPatrol());
     }
 
     private void SetDirectionToTarget()
     {
-        var direction = _target.transform.position - transform.position;
+        var direction = _target - transform.position;
         if (allowJump)
         {
-          _creature.SetDirectionHorizontal(direction.normalized.x);
-          _creature.Jump();  
+            _creature.SetDirectionHorizontal(direction.normalized.x);
+            _creature.Jump();
         }
     }
 
@@ -130,10 +155,10 @@ public class SlimeAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (_timeBeforeApplyDamage < 0)
+            if (_attackCooldown.IsReady)
             {
-                _timeBeforeApplyDamage = 0.5f;
                 _makeDamage?.Invoke(_creature.damage);
+                _attackCooldown.Reset();
             }
         }
     }
@@ -145,10 +170,61 @@ public class SlimeAI : MonoBehaviour
             StopCoroutine(_current);
         }
     }
-    
+
+    public void OnNoiseIsVision(GameObject go)
+    {
+        _creature.SetCurrentSpeed(_creature.speed);
+        _isNoise = true;
+        _isNoiseComplete = false;
+
+        _target = go.transform.position;
+
+        _creature.SetCurrentSpeed(_creature.currentSpeed * 2f);
+        StartState(AgrToNoise());
+    }
+
+    private IEnumerator AgrToNoise()
+    {
+        yield return new WaitForSeconds(_alarmDelay * 2);
+        _particles.SpawnWithoutLossyScale("ParticleExclamation");
+        yield return new WaitForSeconds(_alarmDelay);
+        StartState(GoToNoise());
+    }
+
+    private IEnumerator GoToNoise()
+    {
+        _timerToNoise = false;
+        StartCoroutine(TimerToFindNoise());
+
+        while (!_isNoiseComplete)
+        {
+            SetDirectionToTarget();
+
+            if (Math.Abs(_target.x - gameObject.transform.position.x) <= 0.5 || _timerToNoise)
+            {
+                yield return new WaitForSeconds(_missCooldown * 2);
+                _particles.SpawnWithoutLossyScale("ParticleMiss");
+                yield return new WaitForSeconds(_missCooldown);
+                StartState(DoPatrol());
+                
+                _timerToNoise = false;
+                _isNoise = false;
+                _isNoiseComplete = true;
+            }
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator TimerToFindNoise()
+    {
+        yield return new WaitForSeconds(5);
+        _timerToNoise = true;
+        _isNoiseComplete = true;
+    }
+
     [Serializable]
     public class OnDamage : UnityEvent<int>
     {
-        
     }
 }

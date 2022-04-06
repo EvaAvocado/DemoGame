@@ -261,9 +261,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vision: {fileID: 6079331960050723351}
+  _attackCooldown:
+    _valueOfCooldown: 1
   _alarmDelay: 0.5
   _missCooldown: 0.5
-  _timeBeforeApplyDamage: 0
   _points:
   - {fileID: 6079331960670292704}
   - {fileID: 6079331959054712702}
@@ -549,6 +550,9 @@ GameObject:
   - component: {fileID: 6079331960050723348}
   - component: {fileID: 6079331960050723351}
   - component: {fileID: 3690863661349405719}
+  - component: {fileID: 4801302466173514386}
+  - component: {fileID: 7204838333810620385}
+  - component: {fileID: 2250101400461282493}
   m_Layer: 0
   m_Name: Vision
   m_TagString: Untagged
@@ -625,21 +629,129 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _action:
+  _actionWithGameObject:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6079331959947645841}
         m_TargetAssemblyTypeName: SlimeAI, Assembly-CSharp
         m_MethodName: OnHeroIsVision
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _action:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4801302466173514386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079331960050723354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251665b30195e9142ad525c2a90555d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _actionWithGameObjectEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6079331959947645841}
+        m_TargetAssemblyTypeName: SlimeAI, Assembly-CSharp
+        m_MethodName: UpdateHeroPosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionWithGameObjectExit:
+    m_PersistentCalls:
+      m_Calls: []
+  _actionEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  _actionExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7204838333810620385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079331960050723354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e259d14f732f1334d8dc7405d76051ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Noise
+  _actionWithGameObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6079331959947645841}
+        m_TargetAssemblyTypeName: SlimeAI, Assembly-CSharp
+        m_MethodName: OnNoiseIsVision
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _action:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2250101400461282493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079331960050723354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251665b30195e9142ad525c2a90555d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _actionWithGameObjectEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6079331959947645841}
+        m_TargetAssemblyTypeName: SlimeAI, Assembly-CSharp
+        m_MethodName: UpdateHeroPosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionWithGameObjectExit:
+    m_PersistentCalls:
+      m_Calls: []
+  _actionEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  _actionExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6079331960670292705
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,7 +33,7 @@ public class Creature : MonoBehaviour
         private bool _windy = false;
         private bool _windDirectionRight = true;
 
-        private static readonly int IsGroundKey = Animator.StringToHash("is-not-ground");
+        private static readonly int IsNotGroundKey = Animator.StringToHash("is-not-ground");
         protected static readonly int IsRunningKey = Animator.StringToHash("is-running");
         private static readonly int IsHit = Animator.StringToHash("hit");
         protected static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
@@ -52,8 +52,15 @@ public class Creature : MonoBehaviour
         protected virtual void Update()
         {
             IsGrounded = _groundCheck.isTouchingLayer;
-            if (IsGrounded) _allowSecondJump = true;
-            if (!IsGrounded) _allowFirstJump = true;
+            if (IsGrounded)
+            {
+                _allowSecondJump = true;
+            }
+
+            if (!IsGrounded)
+            {
+                _allowFirstJump = true;
+            }
         }
 
         //Choose direction: to right - 1, to left - (-1)
@@ -97,10 +104,12 @@ public class Creature : MonoBehaviour
             if (IsGrounded)
             {
                 Animator.SetFloat(VerticalVelocityKey, 0);
+                Animator.SetBool(IsNotGroundKey, false);
             }
             else
             {
               Animator.SetFloat(VerticalVelocityKey, Rb.velocity.y);  
+              Animator.SetBool(IsNotGroundKey, true);
             }
         }
 
@@ -120,10 +129,6 @@ public class Creature : MonoBehaviour
                 SpawnParticleJump(_countOfJumpParticles);
                 _allowSecondJump = false;
             }
-            if (!IsGrounded)
-            {
-                Animator.SetTrigger(IsGroundKey);
-            }
         }
         
         public void JumpBroke()
@@ -131,10 +136,6 @@ public class Creature : MonoBehaviour
             if (Rb.velocity.y > 0)
             {
                 Rb.velocity = new Vector2(Rb.velocity.x, Rb.velocity.y * 0.5f);
-            }
-            if (!IsGrounded)
-            {
-                Animator.SetTrigger(IsGroundKey);
             }
         }
         

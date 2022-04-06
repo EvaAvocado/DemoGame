@@ -8,10 +8,11 @@ public class SpriteAnimationComponent : MonoBehaviour
     [SerializeField] private bool _loop;
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private UnityEvent _onComplete;
+    [SerializeField] private bool meow;
 
     private SpriteRenderer _renderer;
     private float _secondPerFrame;
-    private int _currentSpritIndex;
+    private int _currentSpriteIndex;
     private float _nextFrameTime;
 
     private void Start()
@@ -23,11 +24,11 @@ public class SpriteAnimationComponent : MonoBehaviour
     {
         _secondPerFrame = 1f / _frameRate;
         _nextFrameTime = Time.time + _secondPerFrame;
-        _currentSpritIndex = 0;
+        _currentSpriteIndex = 0;
     }
 
     private void Update()
-    {
+    { 
         Animation();
     }
 
@@ -35,11 +36,11 @@ public class SpriteAnimationComponent : MonoBehaviour
     {
         if (_nextFrameTime > Time.time) return;
         
-        if (_currentSpritIndex >= _sprites.Length)
+        if (_currentSpriteIndex >= _sprites.Length)
         {
             if (_loop)
             {
-                _currentSpritIndex = 0;
+                _currentSpriteIndex = 0;
             }
             else
             {
@@ -49,8 +50,8 @@ public class SpriteAnimationComponent : MonoBehaviour
                 return;
             }
         }
-        _renderer.sprite = _sprites[_currentSpritIndex];
+        _renderer.sprite = _sprites[_currentSpriteIndex];
         _nextFrameTime += _secondPerFrame;
-        _currentSpritIndex++;
+        _currentSpriteIndex++;
     }
 }
