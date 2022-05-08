@@ -17,6 +17,7 @@ public class EnterCollisionComponent : MonoBehaviour
             _gameObject = other.gameObject;
             _actionWithGameObject?.Invoke(_gameObject);
             _action?.Invoke();
+            print("MEOW");
         }
     }
     

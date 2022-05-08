@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class TimerComponent : MonoBehaviour
 {
     [SerializeField] private float _time;
+    [SerializeField] private bool _doAction = true;
     [SerializeField] private UnityEvent _action;
     private float _timeBeforeApplyAction;
 
@@ -15,9 +16,17 @@ public class TimerComponent : MonoBehaviour
 
     private void Update()
     {
-        Timer();
+        if (_doAction)
+        {
+            Timer(); 
+        }
     }
 
+    public void SetNegativeDoAction()
+    {
+        _doAction = !_doAction;
+    }
+    
     public void Timer()
     {
         _timeBeforeApplyAction -= Time.deltaTime;
@@ -27,4 +36,6 @@ public class TimerComponent : MonoBehaviour
             _action?.Invoke();
         }
     }
+
+   
 }

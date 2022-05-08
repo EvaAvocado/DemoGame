@@ -272,7 +272,7 @@ MonoBehaviour:
   _makeDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7168428050809604744, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
         m_TargetAssemblyTypeName: HealthComponent, Assembly-CSharp
         m_MethodName: ApplyDamage
         m_Mode: 0

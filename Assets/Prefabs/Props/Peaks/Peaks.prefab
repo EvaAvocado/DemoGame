@@ -126,10 +126,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _actionWithGameObject:
+    m_PersistentCalls:
+      m_Calls: []
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7168428050809604744, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
         m_TargetAssemblyTypeName: HealthComponent, Assembly-CSharp
         m_MethodName: ApplyDamage
         m_Mode: 3
@@ -141,9 +144,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
-        m_MethodName: Rebound
+      - m_Target: {fileID: 8336462552675167523}
+        m_TargetAssemblyTypeName: DestroyObjectComponent, Assembly-CSharp
+        m_MethodName: DestroyObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

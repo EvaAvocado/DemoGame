@@ -50,6 +50,7 @@ public class HealthComponent : MonoBehaviour
         {
             _health = _maxHealth;
         }
+        
         _onRestoreHealth?.Invoke();
         print("Health: " + _health);
     }
