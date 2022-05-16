@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 7168428051850153716, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
+      propertyPath: _layer.m_Bits
+      value: 832
+      objectReference: {fileID: 0}
     - target: {fileID: 7168428052328432453, guid: e78828f540207cb459b6cc563ae71d81, type: 3}
       propertyPath: TriggerModule.primitives.Array.size
       value: 4
@@ -684,9 +688,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _actionWithGameObject:
-    m_PersistentCalls:
-      m_Calls: []
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -2727,7 +2728,7 @@ Transform:
   - {fileID: 686323569}
   - {fileID: 593730920}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153711104
 GameObject:
@@ -3900,9 +3901,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush
       objectReference: {fileID: 0}
+    - target: {fileID: 1143095551350122247, guid: 0d40ce2818520ea4fb8ff821285c564d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1143095551350122265, guid: 0d40ce2818520ea4fb8ff821285c564d, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1143095551350122265, guid: 0d40ce2818520ea4fb8ff821285c564d, type: 3}
       propertyPath: m_LocalPosition.x

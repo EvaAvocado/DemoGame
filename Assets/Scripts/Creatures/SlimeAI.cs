@@ -12,8 +12,6 @@ public class SlimeAI : MonoBehaviour
     [SerializeField] private Transform[] _points;
     [SerializeField] private float _treshold = 0.5f;
 
-    [Header("Events")] [SerializeField] private OnDamage _makeDamage;
-
     public bool allowJump = true;
     public bool stopMoveX = false;
 
@@ -21,6 +19,7 @@ public class SlimeAI : MonoBehaviour
     private Coroutine _current;
     private Vector3 _target;
     private Creature _creature;
+    private HealthChangeComponent _healthChangeComponent;
 
     private bool firstAgrToHero = true;
     private bool _timerToNoise;
@@ -32,10 +31,12 @@ public class SlimeAI : MonoBehaviour
     {
         _particles = GetComponent<SpawnListComponent>();
         _creature = GetComponent<Creature>();
+        _healthChangeComponent = GetComponent<HealthChangeComponent>();
     }
 
     private void Start()
     {
+        _healthChangeComponent.SetHpDelta(_creature.damage);
         StartState(DoPatrol());
     }
 
@@ -157,7 +158,7 @@ public class SlimeAI : MonoBehaviour
         {
             if (_attackCooldown.IsReady)
             {
-                _makeDamage?.Invoke(_creature.damage);
+                _healthChangeComponent.ApplyDamage(other.gameObject);
                 _attackCooldown.Reset();
             }
         }

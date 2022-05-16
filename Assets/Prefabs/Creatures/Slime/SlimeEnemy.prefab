@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 7879056580276867976}
   - component: {fileID: 3547103164601488572}
   - component: {fileID: 6650130616083676423}
+  - component: {fileID: 5406759221825431429}
   m_Layer: 9
   m_Name: Slime
   m_TagString: Enemy
@@ -474,6 +475,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 6079331959285409319}
+--- !u!114 &5406759221825431429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079331959947645844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e2de708fdc94245ad5227497d84657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hpDelta: 0
 --- !u!1 &6079331960025983479
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +566,6 @@ GameObject:
   - component: {fileID: 3690863661349405719}
   - component: {fileID: 4801302466173514386}
   - component: {fileID: 7204838333810620385}
-  - component: {fileID: 2250101400461282493}
   m_Layer: 0
   m_Name: Vision
   m_TagString: Untagged
@@ -629,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _actionWithGameObject:
+  _action:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6079331959947645841}
@@ -644,9 +657,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _action:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4801302466173514386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,7 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _actionWithGameObjectEnter:
+  _actionEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6079331959947645841}
@@ -675,12 +685,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _actionWithGameObjectExit:
-    m_PersistentCalls:
-      m_Calls: []
-  _actionEnter:
-    m_PersistentCalls:
-      m_Calls: []
   _actionExit:
     m_PersistentCalls:
       m_Calls: []
@@ -697,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Noise
-  _actionWithGameObject:
+  _action:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6079331959947645841}
@@ -712,46 +716,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _action:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2250101400461282493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6079331960050723354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251665b30195e9142ad525c2a90555d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: Player
-  _actionWithGameObjectEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6079331959947645841}
-        m_TargetAssemblyTypeName: SlimeAI, Assembly-CSharp
-        m_MethodName: UpdateHeroPosition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _actionWithGameObjectExit:
-    m_PersistentCalls:
-      m_Calls: []
-  _actionEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  _actionExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6079331960670292705
 GameObject:
   m_ObjectHideFlags: 0
