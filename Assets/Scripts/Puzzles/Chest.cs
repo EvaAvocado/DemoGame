@@ -24,7 +24,7 @@ public class Chest : MonoBehaviour
 
     public void Action()
     {
-        if (_session.level1Data.stateKey)
+        if (_session.playerData.inventory.Count("Key") >= 1)
         {
             _actionIfOpen?.Invoke();
         }

@@ -152,6 +152,11 @@ public class Hero : Creature
         }
     }
     
+    public void AddInventory(string id, int value)
+    {
+        _session.playerData.inventory.Add(id, value);
+    }
+    
     private void CheckUhuvdus()
     {
         switch (_session.playerData.uhuwdu)

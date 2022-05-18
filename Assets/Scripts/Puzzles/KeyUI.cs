@@ -7,6 +7,6 @@ public class KeyUI : MonoBehaviour
     private void Start()
     {
         _session = FindObjectOfType<GameSession>();
-        gameObject.SetActive(_session.level1Data.stateKey);
+        gameObject.SetActive(_session.playerData.inventory.Count("Key") >= 1);
     }
 }

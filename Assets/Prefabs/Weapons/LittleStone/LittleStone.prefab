@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 2587938158756701897}
   - component: {fileID: -3910005148627753108}
   - component: {fileID: -2872264750726525199}
+  - component: {fileID: -2011040518299889485}
   m_Layer: 0
   m_Name: LittleStone
   m_TagString: Untagged
@@ -196,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 120
+  _doAction: 1
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -250,12 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Enemy
-  _actionWithGameObject:
+  _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8714276576765635240}
-        m_TargetAssemblyTypeName: TakeDamageComponent, Assembly-CSharp
-        m_MethodName: TakeDamage
+      - m_Target: {fileID: -2011040518299889485}
+        m_TargetAssemblyTypeName: HealthChangeComponent, Assembly-CSharp
+        m_MethodName: ApplyDamage
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -263,11 +265,8 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-  _action:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: -2872264750726525199}
         m_TargetAssemblyTypeName: SpawnComponent, Assembly-CSharp
         m_MethodName: Spawn
@@ -305,9 +304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Ground
-  _actionWithGameObject:
-    m_PersistentCalls:
-      m_Calls: []
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -349,3 +345,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 7356809271294393193}
   _prefab: {fileID: 7596110658948002639, guid: bcbc819403d9c89438b2db08df835837, type: 3}
+--- !u!114 &-2011040518299889485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206838696059931387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e2de708fdc94245ad5227497d84657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hpDelta: 1

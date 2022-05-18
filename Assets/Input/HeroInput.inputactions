@@ -111,8 +111,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Arrows",
-                    "id": "c1aa7395-2fae-440d-b434-b2e7b9b6ff60",
+                    "name": "Keyboard",
+                    "id": "89c74116-d465-4d57-919d-ab6a437996ca",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -123,8 +123,8 @@
                 },
                 {
                     "name": "negative",
-                    "id": "ed18d45d-eb88-495b-bc4b-ff7a8d5af1bf",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "5d4c1bb8-bbba-4528-a5e6-7e0b22a40176",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -134,8 +134,8 @@
                 },
                 {
                     "name": "positive",
-                    "id": "6bc8696e-0b2e-4f1c-8a0f-17fbd86fddea",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "ba65a2ab-fd46-4439-a57f-2ffd8fcdddd1",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -144,7 +144,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Arrow",
+                    "name": "Arrows",
                     "id": "96d06b2f-5218-4380-a892-e0d3aa65c7a1",
                     "path": "1DAxis",
                     "interactions": "",
@@ -179,7 +179,7 @@
                 {
                     "name": "",
                     "id": "89f55334-b432-452c-8471-4f48ef8d0696",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

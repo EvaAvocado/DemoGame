@@ -182,7 +182,7 @@ public class Creature : MonoBehaviour
         IEnumerator TimerToDelayRebound()
         {
             var dir = DirectionHorizontal > 0 ? Vector2.left : Vector2.right;
-            Rb.AddForce (Vector2.up  * JumpForce * 0.25f + dir, ForceMode2D.Impulse);
+            Rb.AddForce (Vector2.up  * JumpForce * 0.5f + dir, ForceMode2D.Impulse);
             yield return new WaitForSeconds(1f);
         }
 
