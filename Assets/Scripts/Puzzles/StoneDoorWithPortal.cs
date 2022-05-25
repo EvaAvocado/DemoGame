@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class StoneDoorWithPortal : MonoBehaviour
 {
     [SerializeField] private UnityEvent _opened;
-    private bool status = false;
+    private bool status;
     private GameSession _session;
 
     private void Awake()

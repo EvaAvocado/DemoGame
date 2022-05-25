@@ -88,9 +88,23 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.1
+    functionName: Play
+    data: SoundRun
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.4
     functionName: Spawn
     data: ParticleRun
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.4
+    functionName: Play
+    data: SoundRun2
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

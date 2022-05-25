@@ -10,11 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 994555106729499367}
   - component: {fileID: 994555106729499364}
-  - component: {fileID: 994555106729499361}
   - component: {fileID: 994555106729499363}
   - component: {fileID: 994555106729499360}
   - component: {fileID: 2771069182153247709}
   - component: {fileID: 1843098656}
+  - component: {fileID: 612183012}
+  - component: {fileID: 612183018}
+  - component: {fileID: 801386821602144987}
+  - component: {fileID: 2010804475}
   m_Layer: 9
   m_Name: GreyStone
   m_TagString: Enemy
@@ -32,7 +35,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 69, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7316111891184905152}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87,32 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &994555106729499361
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994555106729499365}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.013515472, y: -0.2193132}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9297104, y: 0.5613736}
-  m_EdgeRadius: 0
 --- !u!114 &994555106729499363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,13 +103,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc48f7e4a1fb84cafcad381495b5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 2
   _onSetMaxHealth:
     m_PersistentCalls:
       m_Calls: []
   _onDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6119639067979112038}
+        m_TargetAssemblyTypeName: ChangeRandSoundComponent, Assembly-CSharp
+        m_MethodName: PlayRandSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -145,6 +135,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 801386821602144987}
+        m_TargetAssemblyTypeName: ChangeRandSoundComponent, Assembly-CSharp
+        m_MethodName: PlayRandSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SoundDie
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 994555106729499360}
@@ -213,3 +215,168 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!60 &612183012
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994555106729499365}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.07401428, y: 0.041534677}
+      - {x: -0.24055278, y: -0.015943646}
+      - {x: -0.44803113, y: -0.25098383}
+      - {x: -0.44803113, y: -0.5}
+      - {x: 0.46752167, y: -0.4870084}
+      - {x: 0.46751654, y: -0.13996047}
+      - {x: 0.3415334, y: 0.048031114}
+--- !u!114 &612183018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994555106729499365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb18f0a1fe204fad976a16cbdbbdf70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 0}
+  _sounds:
+  - _id: SoundDie1
+    _clip: {fileID: 8300000, guid: ec3f927ef9e3da84690a712e2eb71301, type: 3}
+  - _id: SoundDie2
+    _clip: {fileID: 8300000, guid: 85dadbfc22ac2ff409d44d104723f204, type: 3}
+--- !u!114 &801386821602144987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994555106729499365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550481e05fc842bda059bc685c89311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsName:
+  - SoundDie1
+  - SoundDie2
+--- !u!60 &2010804475
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994555106729499365}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.07401428, y: 0.041534677}
+      - {x: -0.24055278, y: -0.015943646}
+      - {x: -0.44803113, y: -0.25098383}
+      - {x: -0.44803113, y: -0.5}
+      - {x: 0.46752167, y: -0.4870084}
+      - {x: 0.46751654, y: -0.13996047}
+      - {x: 0.3415334, y: 0.048031114}
+--- !u!1 &3407546805857831253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7316111891184905152}
+  - component: {fileID: 6119639067979112038}
+  - component: {fileID: 8997037653673075489}
+  m_Layer: 9
+  m_Name: ChangeRandSoundHit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7316111891184905152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407546805857831253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 994555106729499367}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6119639067979112038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407546805857831253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550481e05fc842bda059bc685c89311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsName:
+  - SoundHit1
+  - SoundHit2
+  - SoundHit3
+--- !u!114 &8997037653673075489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407546805857831253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb18f0a1fe204fad976a16cbdbbdf70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 0}
+  _sounds:
+  - _id: SoundHit1
+    _clip: {fileID: 8300000, guid: f9397b76d50e1c4418449085d56f7772, type: 3}
+  - _id: SoundHit2
+    _clip: {fileID: 8300000, guid: b0f1fdf985117684c920d4cdc8d6a078, type: 3}
+  - _id: SoundHit3
+    _clip: {fileID: 8300000, guid: 787208bfe3443b14189263dc95e0f773, type: 3}

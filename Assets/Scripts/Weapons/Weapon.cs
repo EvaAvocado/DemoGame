@@ -8,19 +8,24 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GemItem[] _gemItems;
     
     [SerializeField] private Cooldown _whiteGemCooldown;
+    [SerializeField] private Cooldown _whiteRayCooldown;
+    [SerializeField] private Cooldown _whiteRayCooldownOnMute;
     
     [SerializeField] private ParticleSystem _rayParticle;
     [SerializeField] private LayerMask _targetLayer;
     
     [SerializeField] private bool _attackPhase = false;
+    
     public bool attackPhase => _attackPhase;
 
     private SpriteRenderer _spriteRenderer;
     private GameSession _session;
+    private PlaySoundsComponent _sounds;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _sounds = GetComponent<PlaySoundsComponent>();
     }
 
     private void Start()
@@ -37,7 +42,17 @@ public class Weapon : MonoBehaviour
                 ShowGemSprite(_session.playerData.currentGem);
                 if (attackPhase)
                 {
+                    _sounds.UnMute();
                     ApplyRayParticle();
+                }
+
+                if (!attackPhase)
+                {
+                    if (_whiteRayCooldownOnMute.IsReady)
+                    {
+                        _sounds.Mute();
+                        _whiteRayCooldownOnMute.Reset();
+                    }
                 }
                 break;
             default:
@@ -60,6 +75,12 @@ public class Weapon : MonoBehaviour
     private void ApplyRayParticle()
     {
         _rayParticle.Play();
+        
+        if (_whiteRayCooldown.IsReady)
+        {
+            _sounds.Play("SoundWhiteRay");
+            _whiteRayCooldown.Reset();
+        }
     }
 
     public void ApplyRayDamage(GameObject target)

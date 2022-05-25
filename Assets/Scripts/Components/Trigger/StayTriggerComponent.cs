@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class StayTriggerComponent : MonoBehaviour
 {
     [SerializeField] private String _tag;
-    [SerializeField] private GameObjectChange _actionEnter;
+    [SerializeField] private GameObjectChange _actionStay;
     [SerializeField] private GameObjectChange _actionExit;
     
     
@@ -13,7 +13,7 @@ public class StayTriggerComponent : MonoBehaviour
     {
         if (other.gameObject.CompareTag(_tag))
         {
-            _actionEnter?.Invoke(other.gameObject);
+            _actionStay?.Invoke(other.gameObject);
         }
     }
     

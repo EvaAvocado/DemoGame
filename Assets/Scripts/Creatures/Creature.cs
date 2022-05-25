@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Creature : MonoBehaviour
@@ -16,10 +15,11 @@ public class Creature : MonoBehaviour
         [SerializeField] private LayerCheckComponent _groundCheck;
         [SerializeField] protected SpawnListComponent Particles;
         
-        protected float CurrentSpeed;
         protected Rigidbody2D Rb;
         protected Animator Animator;
+        protected PlaySoundsComponent Sounds;
         protected float DirectionHorizontal;
+        protected float CurrentSpeed;
         protected bool IsGrounded;
 
         public bool isGrounded => IsGrounded;
@@ -42,6 +42,7 @@ public class Creature : MonoBehaviour
         {
             Rb = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
+            Sounds = GetComponent<PlaySoundsComponent>();
         }
 
         protected virtual void Start()
@@ -120,6 +121,7 @@ public class Creature : MonoBehaviour
                 Rb.velocity = new Vector2(Rb.velocity.x, 0.0f); 
                 Rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
                 SpawnParticleJump(_countOfJumpParticles);
+                Sounds.Play("SoundJump");
                 _allowFirstJump = false;
 
             }
@@ -127,6 +129,7 @@ public class Creature : MonoBehaviour
             {
                 Rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
                 SpawnParticleJump(_countOfJumpParticles);
+                Sounds.Play("SoundJump");
                 _allowSecondJump = false;
             }
         }
@@ -164,6 +167,7 @@ public class Creature : MonoBehaviour
                 if (contact.relativeVelocity.y >= _jumpDownVelocity)
                 {
                     StartCoroutine(TimerToDealyJumpDown());
+                    Sounds.Play("SoundJumpDown");
                 }
             }
         }

@@ -116,6 +116,7 @@ public class Hero : Creature
         _bloxMoveX = true;
         Rb.velocity = Vector2.zero;
         Animator.Play("climb");
+        Sounds.Play("SoundClimb");
     }
 
     public void ThrowStone()
