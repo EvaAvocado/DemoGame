@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb18f0a1fe204fad976a16cbdbbdf70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 6657669408236043992}
+  _source: {fileID: 0}
   _sounds:
   - _id: SoundDie
     _clip: {fileID: 8300000, guid: 3479a64590215904390864a1e2ac870b, type: 3}
@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 3690863661349405719}
   - component: {fileID: 4801302466173514386}
   - component: {fileID: 7204838333810620385}
+  - component: {fileID: 4099186506759310014}
   m_Layer: 0
   m_Name: Vision
   m_TagString: Untagged
@@ -876,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _actionEnter:
+  _actionStay:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6079331959947645841}
@@ -891,9 +892,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _actionExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &7204838333810620385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,6 +912,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SlimeAI, Assembly-CSharp
         m_MethodName: OnNoiseIsVision
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4099186506759310014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079331960050723354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a9aa30f4054f24aa5ac132e5849011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6079331959947645841}
+        m_TargetAssemblyTypeName: SlimeAI, Assembly-CSharp
+        m_MethodName: StartPatrol
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -37,7 +37,7 @@ public class SlimeAI : MonoBehaviour
     private void Start()
     {
         _healthChangeComponent.SetHpDelta(_creature.damage);
-        StartState(DoPatrol());
+        StartPatrol();
     }
 
     private void FixedUpdate()
@@ -46,6 +46,11 @@ public class SlimeAI : MonoBehaviour
         {
             _creature.SetDirectionHorizontal(0);
         }
+    }
+
+    public void StartPatrol()
+    {
+        StartState(DoPatrol());
     }
 
     private IEnumerator DoPatrol()

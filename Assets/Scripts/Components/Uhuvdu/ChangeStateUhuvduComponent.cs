@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeStateUhuvduComponent : MonoBehaviour
 {
-    [SerializeField] private Cooldown _checkUhuvduCooldown;
-    
     private Transform _parent;
     private Transform[] _children;
     private GameSession _session;
@@ -18,15 +17,13 @@ public class ChangeStateUhuvduComponent : MonoBehaviour
     private void Start()
     {
         _session = FindObjectOfType<GameSession>();
+        StartCoroutine(TimerToCheckUhuvduStateAfterStart());
     }
-
-    private void Update()
+    
+    IEnumerator TimerToCheckUhuvduStateAfterStart()
     {
-        if (_checkUhuvduCooldown.IsReady)
-        {
-            CheckUhuvduState();
-            _checkUhuvduCooldown.Reset();
-        }
+        yield return new WaitForSeconds(0.01f);
+        CheckUhuvduState();
     }
 
     public void CheckUhuvduState()

@@ -50,9 +50,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 33f894afb5c7c094fac8d423d287d962, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aeffd5c335f5213489bcb5c87aebfa0f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -187,8 +187,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 4.2307887
-  MaxDistance: 500
+  MinDistance: 2.5660849
+  MaxDistance: 7.1955485
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -497,8 +497,8 @@ GameObject:
   - component: {fileID: 7168428050809604745}
   - component: {fileID: 7168428050809604743}
   - component: {fileID: 8866957923535727510}
-  - component: {fileID: 7168428050809604746}
   - component: {fileID: 5523574328160153519}
+  - component: {fileID: 2203071122192397165}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Player
@@ -933,7 +933,23 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 260021e3f4c4f9f4abcd26832c125eac, type: 3}
   - _id: SoundRun2
     _clip: {fileID: 8300000, guid: f65843db1005cdc4a9a580ef670d2e10, type: 3}
---- !u!95 &7168428050809604746
+--- !u!114 &5523574328160153519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168428050809604785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550481e05fc842bda059bc685c89311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsName:
+  - SoundHit1
+  - SoundHit2
+  - SoundHit3
+--- !u!95 &2203071122192397165
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -952,22 +968,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5523574328160153519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7168428050809604785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550481e05fc842bda059bc685c89311b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundsName:
-  - SoundHit1
-  - SoundHit2
-  - SoundHit3
 --- !u!1 &7168428050947130982
 GameObject:
   m_ObjectHideFlags: 0
