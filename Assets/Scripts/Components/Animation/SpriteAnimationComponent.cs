@@ -8,7 +8,6 @@ public class SpriteAnimationComponent : MonoBehaviour
     [SerializeField] private bool _loop;
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private UnityEvent _onComplete;
-    [SerializeField] private bool meow;
 
     private SpriteRenderer _renderer;
     private float _secondPerFrame;

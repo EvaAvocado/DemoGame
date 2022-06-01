@@ -25,7 +25,12 @@ public class Creature : MonoBehaviour
         public bool isGrounded => IsGrounded;
         public Rigidbody2D rb => Rb;
         public int damage => _damage;
-        public float currentSpeed => CurrentSpeed;
+        public float currentSpeed
+        {
+            get => CurrentSpeed;
+            set => CurrentSpeed = value;
+        }
+
         public float speed => _speed;
         
         private bool _allowFirstJump = true;
