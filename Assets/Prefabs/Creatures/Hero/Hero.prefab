@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 8866957923535727510}
   - component: {fileID: 5523574328160153519}
   - component: {fileID: 2203071122192397165}
+  - component: {fileID: 3359571932065492098}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Player
@@ -557,7 +558,6 @@ MonoBehaviour:
   _secondJumpEnabled: 1
   _groundCheck: {fileID: 7168428051850153716}
   Particles: {fileID: 7168428050809604743}
-  _healthBar: {fileID: 0}
   _currentHealth: 0
   _platformLayer:
     serializedVersion: 2
@@ -755,19 +755,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7168428050809604749}
-        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
-        m_MethodName: SubUhuvdu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3359571932065492098}
         m_TargetAssemblyTypeName: ReloadLevelComponent, Assembly-CSharp
         m_MethodName: ReloadLevel
         m_Mode: 1
@@ -920,6 +908,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3359571932065492098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168428050809604785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d74c0de302bb14fb7340a72c831445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7168428050947130982
 GameObject:
   m_ObjectHideFlags: 0

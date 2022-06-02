@@ -8,7 +8,6 @@ public class SlowdownComponent : MonoBehaviour
 
     public void GOSlowdown(GameObject go)
     {
-        print(go);
         go.GetComponent<Creature>().currentSpeed = go.GetComponent<Creature>().speed * _slowdownPercentage;
         StartCoroutine(TimerToStopSlowdown(go.GetComponent<Creature>()));
     }

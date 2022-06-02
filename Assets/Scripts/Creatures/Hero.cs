@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Hero : Creature
 {
-    [Header("UI")] [SerializeField] private Image _healthBar;
+    [Header("Settings")]
     [SerializeField] private float _currentHealth;
 
     [Header("Platform settings")] [SerializeField]
@@ -27,6 +27,7 @@ public class Hero : Creature
     private Collider2D[] _interactionResult = new Collider2D[5];
 
     private GameSession _session;
+    private HealthBarUIComponent _healthBar;
 
     private static readonly int IsClimb = Animator.StringToHash("is-climb");
 
@@ -34,6 +35,7 @@ public class Hero : Creature
     {
         base.Start();
         _session = FindObjectOfType<GameSession>();
+        _healthBar = FindObjectOfType<HealthBarUIComponent>();
         var health = GetComponent<HealthComponent>();
         
         transform.position = _session.playerData.playerPositionAfterLoadingScene;
@@ -83,7 +85,7 @@ public class Hero : Creature
 
     private void SetCurrentHealthInBar()
     {
-        _healthBar.fillAmount = _currentHealth;
+        _healthBar.FillAmount(_currentHealth);
     }
 
     public void Interact()
