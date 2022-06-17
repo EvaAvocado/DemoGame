@@ -22,11 +22,11 @@ public class ChangeBackgroundComponent : MonoBehaviour
 
     private void ChooseBackground()
     {
-        if (_session.level1Data.stateColorLevel == Level1Data.ColorLevel.Green || _session.level1Data.stateColorLevel == Level1Data.ColorLevel.Blue)
+        if (_session.levelData.stateColorLevel == LevelData.ColorLevel.Green || _session.levelData.stateColorLevel == LevelData.ColorLevel.Blue)
         {
             _camera.backgroundColor = new Color(0.49f, 0.64f, 0.78f, 1);
         }
-        else if (_session.level1Data.stateColorLevel == Level1Data.ColorLevel.Pink || _session.level1Data.stateColorLevel == Level1Data.ColorLevel.Red)
+        else if (_session.levelData.stateColorLevel == LevelData.ColorLevel.Pink || _session.levelData.stateColorLevel == LevelData.ColorLevel.Red)
         {
             _camera.backgroundColor = new Color(0.89f, 0.71f, 0.73f, 255);
         }

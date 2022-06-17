@@ -29,19 +29,19 @@ public class ChangeStateUhuvduComponent : MonoBehaviour
     public void CheckUhuvduState()
     {
         _session = FindObjectOfType<GameSession>();
-        if (_session.level1Data.stateColorLevel == Level1Data.ColorLevel.Green)
+        if (_session.levelData.stateColorLevel == LevelData.ColorLevel.Green)
         {
             OnUhuvduState(0);
         }
-        else if (_session.level1Data.stateColorLevel == Level1Data.ColorLevel.Pink)
+        else if (_session.levelData.stateColorLevel == LevelData.ColorLevel.Pink)
         {
             OnUhuvduState(1);
         }
-        else if (_session.level1Data.stateColorLevel == Level1Data.ColorLevel.Blue)
+        else if (_session.levelData.stateColorLevel == LevelData.ColorLevel.Blue)
         {
             OnUhuvduState(2);
         }
-        else if (_session.level1Data.stateColorLevel == Level1Data.ColorLevel.Red)
+        else if (_session.levelData.stateColorLevel == LevelData.ColorLevel.Red)
         {
             OnUhuvduState(3); 
         }

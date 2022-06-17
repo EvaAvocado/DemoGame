@@ -7,12 +7,12 @@ public class EndLevel : MonoBehaviour
     private void Start()
     {
         _session = FindObjectOfType<GameSession>();
-        transform.gameObject.SetActive(_session.level1Data.stateEndLevel);
+        transform.gameObject.SetActive(_session.levelData.stateEndLevel);
     }
 
     public void UpdateStateEndLevel()
     {
         _session = FindObjectOfType<GameSession>();
-        transform.gameObject.SetActive(_session.level1Data.stateEndLevel);
+        transform.gameObject.SetActive(_session.levelData.stateEndLevel);
     }
 }

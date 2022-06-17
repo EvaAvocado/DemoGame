@@ -77,19 +77,19 @@ public class UhuvduUIComponent : MonoBehaviour
     {
         if (_uhuvdus[0].enabled == true && _uhuvdus[1].enabled == true && _uhuvdus[2].enabled == true)
         {
-            _session.level1Data.stateColorLevel = Level1Data.ColorLevel.Green;
+            _session.levelData.stateColorLevel = LevelData.ColorLevel.Green;
         }
         else if (_uhuvdus[0].enabled == true && _uhuvdus[1].enabled == true && _uhuvdus[2].enabled == false)
         {
-            _session.level1Data.stateColorLevel = Level1Data.ColorLevel.Pink;
+            _session.levelData.stateColorLevel = LevelData.ColorLevel.Pink;
         }
         else if (_uhuvdus[0].enabled == true && _uhuvdus[1].enabled == false && _uhuvdus[2].enabled == false)
         {
-            _session.level1Data.stateColorLevel = Level1Data.ColorLevel.Blue;
+            _session.levelData.stateColorLevel = LevelData.ColorLevel.Blue;
         }
         else if (_uhuvdus[0].enabled == false && _uhuvdus[1].enabled == false && _uhuvdus[2].enabled == false)
         {
-            _session.level1Data.stateColorLevel = Level1Data.ColorLevel.Red;
+            _session.levelData.stateColorLevel = LevelData.ColorLevel.Red;
         }
     }
 

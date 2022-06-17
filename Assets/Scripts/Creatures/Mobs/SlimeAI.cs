@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Components;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,7 +20,7 @@ public class SlimeAI : MonoBehaviour
     private Coroutine _current;
     private Vector3 _target;
     private Creature _creature;
-    private HealthChangeComponent _healthChangeComponent;
+    private DamageComponent _damageComponent;
 
     private bool firstAgrToHero = true;
     private bool _timerToNoise;
@@ -31,13 +32,19 @@ public class SlimeAI : MonoBehaviour
     {
         _particles = GetComponent<SpawnListComponent>();
         _creature = GetComponent<Creature>();
-        _healthChangeComponent = GetComponent<HealthChangeComponent>();
     }
 
     private void Start()
     {
-        _healthChangeComponent.SetHpDelta(_creature.damage);
+        _damageComponent.SetDamage(_creature.damage);
         StartPatrol();
+        TimerToSetDamageComponent();
+    }
+
+    IEnumerator TimerToSetDamageComponent()
+    {
+        yield return new WaitForSeconds(0.0001f);
+        _damageComponent = GetComponent<DamageComponent>();
     }
 
     private void FixedUpdate()
@@ -163,7 +170,7 @@ public class SlimeAI : MonoBehaviour
         {
             if (_attackCooldown.IsReady)
             {
-                _healthChangeComponent.ApplyDamage(other.gameObject);
+                _damageComponent.ApplyDamage(other.gameObject);
                 _attackCooldown.Reset();
             }
         }

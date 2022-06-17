@@ -172,11 +172,10 @@ GameObject:
   - component: {fileID: 5872315581250559899}
   - component: {fileID: -1106387262100951097}
   - component: {fileID: -5046655778524465819}
-  - component: {fileID: -8714276576765635240}
   - component: {fileID: 2587938158756701897}
   - component: {fileID: -3910005148627753108}
   - component: {fileID: -2872264750726525199}
-  - component: {fileID: -2011040518299889485}
+  - component: {fileID: 8560533759550979747}
   m_Layer: 0
   m_Name: LittleStone
   m_TagString: Untagged
@@ -354,19 +353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 4206838696059931387}
---- !u!114 &-8714276576765635240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4206838696059931387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22688efa65a44f4396874ada0f8dd93f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 1
 --- !u!114 &2587938158756701897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,8 +369,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2011040518299889485}
-        m_TargetAssemblyTypeName: HealthChangeComponent, Assembly-CSharp
+      - m_Target: {fileID: 8560533759550979747}
+        m_TargetAssemblyTypeName: Components.DamageComponent, Assembly-CSharp
         m_MethodName: ApplyDamage
         m_Mode: 0
         m_Arguments:
@@ -473,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 7356809271294393193}
   _prefab: {fileID: 7596110658948002639, guid: bcbc819403d9c89438b2db08df835837, type: 3}
---- !u!114 &-2011040518299889485
+--- !u!114 &8560533759550979747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,7 +468,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4206838696059931387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71e2de708fdc94245ad5227497d84657, type: 3}
+  m_Script: {fileID: 11500000, guid: 90f72d849dec4d078646d23320e74319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hpDelta: 1
+  _damage: 1

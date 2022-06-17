@@ -10,7 +10,7 @@ public class StoneDoorWithPortal : MonoBehaviour
     private void Awake()
     {
         _session = FindObjectOfType<GameSession>();
-        status = _session.level1Data.stateDoorStone;
+        status = _session.levelData.stateDoorStone;
         if(status) _opened?.Invoke();
     }
 }

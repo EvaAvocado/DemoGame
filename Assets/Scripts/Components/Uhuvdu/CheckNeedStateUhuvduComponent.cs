@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class CheckNeedStateUhuvduComponent : MonoBehaviour
 {
-    [SerializeField] private Level1Data.ColorLevel _needColorLevel;
+    [SerializeField] private LevelData.ColorLevel _needColorLevel;
     [SerializeField] private UnityEvent _action;
 
     private GameSession _session;
@@ -16,7 +16,7 @@ public class CheckNeedStateUhuvduComponent : MonoBehaviour
 
     public void CheckNeedStateUhuvdu()
     {
-        if (_session.level1Data.stateColorLevel == _needColorLevel)
+        if (_session.levelData.stateColorLevel == _needColorLevel)
         {
             _action?.Invoke();
         }

@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 1945742967037121152}
   - component: {fileID: -2842875280837861388}
   - component: {fileID: 3842332609950457207}
-  - component: {fileID: -7396365589751059073}
   - component: {fileID: 1989473712572662995}
+  - component: {fileID: 6464130135471544452}
   m_Layer: 0
   m_Name: Leaf2
   m_TagString: Untagged
@@ -226,8 +226,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -7396365589751059073}
-        m_TargetAssemblyTypeName: HealthChangeComponent, Assembly-CSharp
+      - m_Target: {fileID: 6464130135471544452}
+        m_TargetAssemblyTypeName: Components.DamageComponent, Assembly-CSharp
         m_MethodName: ApplyDamage
         m_Mode: 0
         m_Arguments:
@@ -250,19 +250,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-7396365589751059073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2597085630157219045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71e2de708fdc94245ad5227497d84657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hpDelta: 1
 --- !u!82 &1989473712572662995
 AudioSource:
   m_ObjectHideFlags: 0
@@ -359,3 +346,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6464130135471544452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597085630157219045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f72d849dec4d078646d23320e74319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1

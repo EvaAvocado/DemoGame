@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 828629526290075476}
   - component: {fileID: 8336462552675167523}
   - component: {fileID: 207559605859099382}
+  - component: {fileID: 118009162951323905}
   m_Layer: 8
   m_Name: Peaks
   m_TagString: Enemy
@@ -129,22 +130,10 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HealthComponent, Assembly-CSharp
+      - m_Target: {fileID: 118009162951323905}
+        m_TargetAssemblyTypeName: Components.DamageComponent, Assembly-CSharp
         m_MethodName: ApplyDamage
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DestroyObjectComponent, Assembly-CSharp
-        m_MethodName: DestroyObject
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -232,3 +221,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8492799, y: 0.5572585}
   m_EdgeRadius: 0
+--- !u!114 &118009162951323905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389598435612693646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f72d849dec4d078646d23320e74319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10

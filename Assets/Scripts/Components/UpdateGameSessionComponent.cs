@@ -9,6 +9,7 @@ public class UpdateGameSessionComponent : MonoBehaviour
     [SerializeField] private bool _stateWhiteGem;
     [SerializeField] private bool _stateEndLevel; 
     [SerializeField] private bool _stateChest;
+    [SerializeField] private bool _stateMenu;
     
     private GameSession _session;
 
@@ -24,21 +25,26 @@ public class UpdateGameSessionComponent : MonoBehaviour
 
     public void UpdateStateWhiteGem()
     {
-        _session.level1Data.stateWhiteGem = _stateWhiteGem;
+        _session.levelData.stateWhiteGem = _stateWhiteGem;
     }
     
     public void UpdateStateEndLevel()
     {
-        _session.level1Data.stateEndLevel = _stateEndLevel;
+        _session.levelData.stateEndLevel = _stateEndLevel;
     }
 
     public void UpdateStoneDoorStatus()
     {
-        _session.level1Data.stateDoorStone = _stoneDoorStatus;
+        _session.levelData.stateDoorStone = _stoneDoorStatus;
     }
     
     public void UpdateStateChest()
     {
-        _session.level1Data.stateChest = _stateChest;
+        _session.levelData.stateChest = _stateChest;
+    }
+    
+    public void UpdateStateMenu()
+    {
+        _session.playerData.menuStatus = _stateMenu;
     }
 }

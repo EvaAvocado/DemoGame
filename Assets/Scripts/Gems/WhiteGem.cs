@@ -7,7 +7,7 @@ public class WhiteGem : MonoBehaviour
     private void Start()
     {
         _session = FindObjectOfType<GameSession>();
-        transform.gameObject.SetActive(_session.level1Data.stateWhiteGem);
+        transform.gameObject.SetActive(_session.levelData.stateWhiteGem);
     }
     
 }

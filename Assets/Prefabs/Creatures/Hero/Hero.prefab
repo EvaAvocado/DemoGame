@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 5523574328160153519}
   - component: {fileID: 2203071122192397165}
   - component: {fileID: 3359571932065492098}
+  - component: {fileID: 4772271799745024558}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Player
@@ -552,13 +553,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   JumpForce: 13
-  _damage: 3
   _jumpDownVelocity: 10
   _countOfJumpParticles: 8
   _secondJumpEnabled: 1
   _groundCheck: {fileID: 7168428051850153716}
   Particles: {fileID: 7168428050809604743}
   _currentHealth: 0
+  _damage: 3
   _platformLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -920,6 +921,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d74c0de302bb14fb7340a72c831445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4772271799745024558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168428050809604785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f72d849dec4d078646d23320e74319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 0
 --- !u!1 &7168428050947130982
 GameObject:
   m_ObjectHideFlags: 0

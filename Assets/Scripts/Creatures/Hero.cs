@@ -5,6 +5,7 @@ public class Hero : Creature
 {
     [Header("Settings")]
     [SerializeField] private float _currentHealth;
+    [SerializeField] private int _damage;
 
     [Header("Platform settings")] [SerializeField]
     private LayerMask _platformLayer;
@@ -37,6 +38,7 @@ public class Hero : Creature
         _session = FindObjectOfType<GameSession>();
         _healthBar = FindObjectOfType<HealthBarUIComponent>();
         var health = GetComponent<HealthComponent>();
+        Damage = _damage;
         
         transform.position = _session.playerData.playerPositionAfterLoadingScene;
     }

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameSession : MonoBehaviour
 {
     public PlayerData playerData;
-    public Level1Data level1Data;
+    [FormerlySerializedAs("level1Data")] public LevelData levelData;
     
     private void Awake()
     {

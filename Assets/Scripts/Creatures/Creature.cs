@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Components;
 using UnityEngine;
 
 public class Creature : MonoBehaviour
@@ -6,7 +7,6 @@ public class Creature : MonoBehaviour
         [Header("Params")]
         [SerializeField] private float _speed;
         [SerializeField] protected float JumpForce;
-        [SerializeField] private int _damage = 2;
         [SerializeField] private float _jumpDownVelocity;
         [SerializeField] private int _countOfJumpParticles;
         [SerializeField] private bool _secondJumpEnabled = true;
@@ -15,6 +15,7 @@ public class Creature : MonoBehaviour
         [SerializeField] private LayerCheckComponent _groundCheck;
         [SerializeField] protected SpawnListComponent Particles;
         
+        protected int Damage;
         protected Rigidbody2D Rb;
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
@@ -23,8 +24,8 @@ public class Creature : MonoBehaviour
         protected bool IsGrounded;
 
         public bool isGrounded => IsGrounded;
+        public int damage => Damage;
         public Rigidbody2D rb => Rb;
-        public int damage => _damage;
         public float currentSpeed
         {
             get => CurrentSpeed;
@@ -32,6 +33,7 @@ public class Creature : MonoBehaviour
         }
 
         public float speed => _speed;
+        
         
         private bool _allowFirstJump = true;
         private bool _allowSecondJump = true;
@@ -53,6 +55,13 @@ public class Creature : MonoBehaviour
         protected virtual void Start()
         {
             CurrentSpeed = _speed;
+            TimerToSetDamage();
+        }
+
+        IEnumerator TimerToSetDamage()
+        {
+            yield  return new WaitForSeconds(0.0001f);
+            Damage = GetComponent<DamageComponent>().damage;
         }
 
         protected virtual void Update()

@@ -16,7 +16,7 @@ public class Chest : MonoBehaviour
     IEnumerator TimerToCheckStateChest()
     {
         yield return new WaitForSeconds(0.001f);
-        if (_session.level1Data.stateChest)
+        if (_session.levelData.stateChest)
         {
             _actionIfOpen?.Invoke();
         }
